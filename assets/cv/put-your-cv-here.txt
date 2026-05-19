@@ -1,0 +1,7 @@
+Place your CV PDF in this folder and name it:
+
+christian-quema-cv.pdf
+
+The Download CV button in index.html already points to:
+
+assets/cv/christian-quema-cv.pdf

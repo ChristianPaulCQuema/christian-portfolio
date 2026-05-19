@@ -1,0 +1,596 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Christian Paul Quema - Full-Stack Developer portfolio for PHP, C#, ASP.NET Core, MySQL, and business web systems." />
+  <title>Christian Paul Quema | Full-Stack Developer Portfolio</title>
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9Oer+R4wR2nE9Rvvqv5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <div class="preloader" id="preloader">
+    <div class="loader-box">
+      <div class="loader-circle"></div>
+      <strong>Loading Portfolio...</strong>
+    </div>
+  </div>
+
+  <div class="noise"></div>
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+  <div class="blob three"></div>
+
+  <header>
+    <div class="container navbar">
+      <button class="menu-btn" id="menuBtn">Menu</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#pricing">Packages</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="themeToggle" title="Change theme">&#9790;</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal active">
+          <div class="badge"><span class="dot"></span> Available for freelance web systems</div>
+          <h1>Full-Stack Developer for <span class="gradient-text">Business Web Systems</span></h1>
+          <div class="typing-line"><span class="typing-label">Specialized in</span><span id="typedText"></span><span class="cursor">|</span></div>
+          <p>
+            I build custom web systems using PHP, MySQL, C#, ASP.NET Core, HTML, CSS, JavaScript, and Bootstrap. I focus on practical systems such as HR portals, barangay management systems, school systems, admin dashboards, and CRUD-based applications.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-outline">Hire Me</a>
+            <a href="assets/cv/christian-quema-cv.pdf" class="btn btn-outline" download>Download CV</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong data-count="6">0</strong>
+              <span>System modules built</span>
+            </div>
+            <div class="stat">
+              <strong data-count="2">0</strong>
+              <span>Main backend stacks</span>
+            </div>
+            <div class="stat">
+              <strong data-count="100">0</strong>
+              <span>Client-focused design</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="profile-card reveal delay-1" id="profileCard">
+          <div class="avatar-wrap">
+            <div class="avatar">
+              <img src="assets/img/christian.jpg" alt="Christian Paul Quema profile photo" />
+            </div>
+          </div>
+          <h2>Christian Paul Quema</h2>
+          <p>Full-Stack Web Developer specializing in PHP systems, C# web apps, MySQL databases, and admin dashboards.</p>
+          <div class="tech-stack">
+            <span class="chip"><i class="devicon-php-plain colored"></i>PHP</span>
+            <span class="chip"><i class="devicon-laravel-original colored"></i>Laravel</span>
+            <span class="chip"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+            <span class="chip"><i class="devicon-csharp-plain colored"></i>C#</span>
+            <span class="chip"><i class="devicon-dotnetcore-plain colored"></i>ASP.NET Core</span>
+            <span class="chip"><i class="devicon-html5-plain colored"></i>HTML</span>
+            <span class="chip"><i class="devicon-css3-plain colored"></i>CSS</span>
+            <span class="chip"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+            <span class="chip"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+            <span class="chip"><i class="devicon-git-plain colored"></i>Git</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>About Me</span>
+          <h2>I turn manual work into organized web systems</h2>
+          <p>I help schools, barangays, small businesses, and organizations replace slow spreadsheets and paper-based processes with clean dashboards, secure records, and easy-to-use online tools.</p>
+        </div>
+
+        <div class="card about-card reveal delay-1">
+          <div>
+            <h3>Why clients work with me</h3>
+            <p>
+              I build practical web systems that are simple for staff to use and organized for admins to manage. My focus is not only on making a website look good, but on creating a working system that saves time, reduces repeated tasks, keeps records easier to find, and supports the way your team already works.
+            </p>
+            <p>
+              From planning modules and database structure to building dashboards, forms, reports, user roles, and deployment preparation, I can help turn your idea into a system that feels clear, useful, and ready for real daily use.
+            </p>
+            <p>
+              I work mainly with PHP, Laravel, MySQL, Bootstrap, JavaScript, and C# / ASP.NET Core. I enjoy building systems where every page has a purpose, from login and account management to searchable records, booking flows, reports, and admin tools.
+            </p>
+            <p>
+              My goal is to understand the actual workflow first, then build a system around it. I care about clean organization, responsive layouts, understandable navigation, and features that make daily work faster instead of more complicated.
+            </p>
+          </div>
+
+          <div class="about-list">
+            <div class="about-item"><span class="check">&#10003;</span><p><strong>Clear project planning:</strong> I help define pages, modules, user roles, database tables, and the exact workflow before development starts.</p></div>
+            <div class="about-item"><span class="check">&#10003;</span><p><strong>Business-ready features:</strong> I can build login, dashboards, CRUD records, search, reports, file uploads, account roles, and admin controls.</p></div>
+            <div class="about-item"><span class="check">&#10003;</span><p><strong>Easy for users:</strong> I design simple layouts so staff, students, employees, or residents can use the system without confusion.</p></div>
+            <div class="about-item"><span class="check">&#10003;</span><p><strong>Built for real operations:</strong> Good fit for HR portals, school systems, barangay systems, inventory systems, and custom management tools.</p></div>
+            <div class="about-item"><span class="check">&#10003;</span><p><strong>Full-stack development:</strong> I can handle frontend pages, backend logic, database tables, validation, authentication, and admin-side workflows.</p></div>
+            <div class="about-item"><span class="check">&#10003;</span><p><strong>Client-friendly communication:</strong> I explain progress clearly, ask about the real process behind each feature, and adjust the system based on practical feedback.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Services</span>
+          <h2>What I can build for clients</h2>
+          <p>These are the services you can offer as a beginner-to-intermediate full-stack freelancer.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card reveal delay-1">
+            <div class="icon">&#128187;</div>
+            <h3>Custom Web Systems</h3>
+            <p>Complete web-based systems with login, dashboard, CRUD, reports, user roles, and database management.</p>
+          </article>
+
+          <article class="card reveal delay-2">
+            <div class="icon">&#128202;</div>
+            <h3>Admin Dashboards</h3>
+            <p>Clean and responsive dashboards for schools, offices, small businesses, organizations, and barangays.</p>
+          </article>
+
+          <article class="card reveal delay-3">
+            <div class="icon">&#128274;</div>
+            <h3>Login & User Management</h3>
+            <p>Secure authentication, account approval, roles, profile management, password handling, and user records.</p>
+          </article>
+
+          <article class="card reveal delay-1">
+            <div class="icon">&#128451;</div>
+            <h3>Database Design</h3>
+            <p>MySQL or SQL Server database structure, tables, relationships, and organized data storage.</p>
+          </article>
+
+          <article class="card reveal delay-2">
+            <div class="icon">&#9881;</div>
+            <h3>PHP System Development</h3>
+            <p>Fast and affordable PHP systems for clients who need practical business applications.</p>
+          </article>
+
+          <article class="card reveal delay-3">
+            <div class="icon">&#128640;</div>
+            <h3>C# / ASP.NET Core Apps</h3>
+            <p>Modern C# web apps and APIs for clients who need scalable and professional backend solutions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Portfolio Projects</span>
+          <h2>Featured systems</h2>
+          
+        </div>
+
+        <div class="project-toolbar reveal delay-1">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="php">PHP</button>
+          <button class="filter-btn" data-filter="csharp">C#</button>
+          <button class="filter-btn" data-filter="school">School</button>
+          <button class="filter-btn" data-filter="business">Business</button>
+        </div>
+
+        <div class="grid-2">
+          <article class="card project-card reveal delay-1" data-category="php business">
+            <div class="project-image project-image-hr">
+              <h3>PTC WorkWise HR & Employee Portal</h3>
+            </div>
+            <div class="project-body">
+              <p>A web-based HR management system with HR and employee accounts, profile management, attendance, employee records, leave requests, documents, and admin dashboard.</p>
+              <div class="tech-stack">
+                <span class="chip"><i class="devicon-php-plain colored"></i>PHP</span>
+                <span class="chip"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+                <span class="chip"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+                <span class="chip"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a class="small-link" href="https://ptcworkwise.com">Live Demo</a>
+                <a class="small-link" href="#">Source Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal delay-2" data-category="php school">
+            <div class="project-image project-image-barangay">
+              <h3>JPCS PTC Website</h3>
+            </div>
+            <div class="project-body">
+              <p>A complete organization website for JPCS PTC with public pages for about, mission, membership, events, gallery, officers, contact, online application, and member login.</p>
+              <div class="tech-stack">
+                <span class="chip"><i class="devicon-php-plain colored"></i>PHP</span>
+                <span class="chip"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+                <span class="chip"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+                <span class="chip"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+                <span class="chip">Membership</span>
+              </div>
+              <div class="project-links">
+                <a class="small-link" href="https://jpcs.site" target="_blank">Live Demo</a>
+                <a class="small-link" href="#">Source Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal delay-1" data-category="php business">
+            <div class="project-image project-image-lakbaygo">
+              <h3>LakbayGo Travel Booking System</h3>
+            </div>
+            <div class="project-body">
+              <p>A travel booking web system with public destination pages, package details, customer login, booking workflows, profile management, and admin dashboards for bookings, destinations, packages, reports, inquiries, and settings.</p>
+              <div class="tech-stack">
+                <span class="chip"><i class="devicon-php-plain colored"></i>PHP</span>
+                <span class="chip"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+                <span class="chip"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+                <span class="chip"><i class="devicon-laravel-original colored"></i>Laravel</span>
+                <span class="chip">Booking System</span>
+                <span class="chip">Admin Dashboard</span>
+              </div>
+              <div class="project-links">
+                <span class="small-link disabled-link" aria-disabled="true">No Live Demo</span>
+                <button class="small-link gallery-trigger" type="button" data-gallery-open>View Gallery</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal delay-2" data-category="csharp business">
+            <div class="project-image project-image-csharp">
+              <h3>C# ASP.NET Core CRUD System</h3>
+            </div>
+            <div class="project-body">
+              <p>A C# web application sample with login, dashboard, CRUD operations, database connection, form validation, and structured MVC architecture.</p>
+              <div class="tech-stack">
+                <span class="chip"><i class="devicon-csharp-plain colored"></i>C#</span>
+                <span class="chip"><i class="devicon-dotnetcore-plain colored"></i>ASP.NET Core</span>
+                <span class="chip"><i class="devicon-microsoftsqlserver-plain colored"></i>SQL Server</span>
+                <span class="chip">MVC</span>
+              </div>
+              <div class="project-links">
+                <a class="small-link" href="#">Live Demo</a>
+                <a class="small-link" href="#">Source Code</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Skills</span>
+          <h2>Technical skills and tools</h2>
+        
+        </div>
+
+        <div class="skills-wrap">
+          <div class="card reveal delay-1">
+            <h3>Main Stack</h3>
+            <div class="skill-logo-grid">
+              <div class="skill-logo-item"><i class="devicon-html5-plain colored"></i><span>HTML</span></div>
+              <div class="skill-logo-item"><i class="devicon-css3-plain colored"></i><span>CSS</span></div>
+              <div class="skill-logo-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+              <div class="skill-logo-item"><i class="devicon-bootstrap-plain colored"></i><span>Bootstrap</span></div>
+              <div class="skill-logo-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+              <div class="skill-logo-item"><i class="devicon-laravel-original colored"></i><span>Laravel</span></div>
+              <div class="skill-logo-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+              <div class="skill-logo-item"><i class="devicon-csharp-plain colored"></i><span>C#</span></div>
+              <div class="skill-logo-item"><i class="devicon-dotnetcore-plain colored"></i><span>ASP.NET</span></div>
+              <div class="skill-logo-item"><i class="devicon-microsoftsqlserver-plain colored"></i><span>SQL Server</span></div>
+              <div class="skill-logo-item"><i class="devicon-composer-line colored"></i><span>Composer</span></div>
+              <div class="skill-logo-item"><i class="devicon-apache-plain colored"></i><span>Apache</span></div>
+              <div class="skill-logo-item"><i class="devicon-xampp-plain colored"></i><span>XAMPP</span></div>
+              <div class="skill-logo-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+              <div class="skill-logo-item"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></div>
+              <div class="skill-logo-item"><i class="devicon-visualstudio-plain colored"></i><span>Visual Studio</span></div>
+              <div class="skill-logo-item"><i class="devicon-github-original"></i><span>GitHub</span></div>
+            </div>
+          </div>
+
+          <div class="card reveal delay-2">
+            <div class="skill-bar">
+              <div class="skill-top"><span><i class="devicon-html5-plain colored"></i><i class="devicon-css3-plain colored"></i><i class="devicon-bootstrap-plain colored"></i>HTML / CSS / Bootstrap</span><span>90%</span></div>
+              <div class="bar"><div class="fill" style="--width: 90%"></div></div>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-top"><span><i class="devicon-php-plain colored"></i><i class="devicon-laravel-original colored"></i><i class="devicon-mysql-plain colored"></i>PHP / Laravel / MySQL</span><span>85%</span></div>
+              <div class="bar"><div class="fill" style="--width: 85%"></div></div>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-top"><span><i class="devicon-javascript-plain colored"></i>JavaScript</span><span>75%</span></div>
+              <div class="bar"><div class="fill" style="--width: 75%"></div></div>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-top"><span><i class="devicon-csharp-plain colored"></i><i class="devicon-dotnetcore-plain colored"></i>C# / ASP.NET Core</span><span>65%</span></div>
+              <div class="bar"><div class="fill" style="--width: 65%"></div></div>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-top"><span><i class="devicon-mysql-plain colored"></i><i class="devicon-microsoftsqlserver-plain colored"></i>Database Design</span><span>80%</span></div>
+              <div class="bar"><div class="fill" style="--width: 80%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Work Process</span>
+          <h2>How I handle client projects</h2>
+        
+        </div>
+
+        <div class="timeline reveal delay-1">
+          <div class="timeline-item">
+            <small>Step 1</small>
+            <h3>Requirement Discussion</h3>
+            <p>I ask about the client&rsquo;s business process, users, pages, modules, reports, and database needs.</p>
+          </div>
+
+          <div class="timeline-item">
+            <small>Step 2</small>
+            <h3>System Design</h3>
+            <p>I prepare the module list, user roles, database structure, and interface flow before coding.</p>
+          </div>
+
+          <div class="timeline-item">
+            <small>Step 3</small>
+            <h3>Development</h3>
+            <p>I build the frontend, backend, database, login, dashboards, CRUD features, and reports.</p>
+          </div>
+
+          <div class="timeline-item">
+            <small>Step 4</small>
+            <h3>Testing & Revision</h3>
+            <p>I test forms, buttons, database saving, login security, role restrictions, and common user errors.</p>
+          </div>
+
+          <div class="timeline-item">
+            <small>Step 5</small>
+            <h3>Deployment & Support</h3>
+            <p>I help prepare the system for hosting or local XAMPP use and provide basic instructions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Freelance Packages</span>
+          <h2>Starter pricing ideas</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="card pricing-card reveal delay-1">
+            <h3>Basic Website</h3>
+            <div class="price">&#8369;3,000+</div>
+           
+            <ul>
+              <li>1 to 5 pages</li>
+              <li>Responsive design</li>
+              <li>Contact section</li>
+              <li>Basic revisions</li>
+            </ul>
+          </article>
+
+          <article class="card pricing-card reveal delay-2">
+            <span class="popular">Popular</span>
+            <h3>CRUD Web System</h3>
+            <div class="price">&#8369;8,000+</div>
+            <p>Good for small business systems with login, admin dashboard, records, and database.</p>
+            <ul>
+              <li>Login and dashboard</li>
+              <li>Add, edit, delete, view records</li>
+              <li>MySQL database</li>
+              <li>Basic reports</li>
+            </ul>
+          </article>
+
+          <article class="card pricing-card reveal delay-3">
+            <h3>Complete Management System</h3>
+            <div class="price">&#8369;15,000+</div>
+            <p>Good for HR, school, barangay, inventory, or organization systems with multiple modules.</p>
+            <ul>
+              <li>Multiple user roles</li>
+              <li>Advanced modules</li>
+              <li>Reports and documents</li>
+              <li>Deployment assistance</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>FAQ</span>
+          <h2>Common client questions</h2>
+        
+        </div>
+
+        <div class="reveal delay-1">
+          <details open>
+            <summary>Can you build a system from zero?</summary>
+            <p>Yes. I can help plan the modules, design the database, create the frontend, build the backend, and prepare the system for local or online use.</p>
+          </details>
+
+          <details>
+            <summary>What technologies do you use?</summary>
+            <p>I mainly use PHP, MySQL, HTML, CSS, JavaScript, Bootstrap, C#, ASP.NET Core, and SQL Server.</p>
+          </details>
+
+          <details>
+            <summary>Can you revise an existing system?</summary>
+            <p>Yes. I can improve layouts, fix bugs, add modules, update database queries, and improve user experience.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta reveal">
+          <div>
+            <h2>Need a web system for your project or business?</h2>
+            <p>Send your requirements and I can help turn them into a working dashboard, database system, or full web application.</p>
+          </div>
+          <a href="#contact" class="btn btn-primary">Start a Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Contact</span>
+          <h2>Let&rsquo;s build your system</h2>
+          
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-info reveal delay-1">
+            <h3>Available for freelance work</h3>
+            <p>I can help build websites, admin dashboards, database systems, and custom web applications.</p>
+
+            <div class="contact-row"><span>Email</span><a href="mailto:quemapaulchristian0@gmail.com">quemapaulchristian0@gmail.com</a></div>
+            <div class="contact-row"><span>Phone</span><a href="tel:09922147271">09922147271</a></div>
+            <div class="contact-row"><span>Location</span><strong>Philippines</strong></div>
+            <div class="contact-row"><span>GitHub</span><a href="https://github.com/ChristianPaulCQuema" target="_blank">github.com/ChristianPaulCQuema</a></div>
+            <div class="contact-row"><span>Facebook</span><a href="https://www.facebook.com/christianpaulc.quema" target="_blank">facebook.com/christianpaulc.quema</a></div>
+          </div>
+
+<form id="contactForm" action="https://formspree.io/f/mwvyllpl" method="POST" class="reveal delay-2">
+  <input type="hidden" name="_subject" value="New Portfolio Inquiry from Christian.Dev" />
+
+  <div class="form-row">
+    <div>
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Client name" required />
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="client@email.com" required />
+    </div>
+  </div>
+
+  <label for="service">Service Needed</label>
+  <select id="service" name="service" required>
+    <option value="">Select service</option>
+    <option>Business Website</option>
+    <option>CRUD Web System</option>
+    <option>Admin Dashboard</option>
+    <option>HR / School / Barangay System</option>
+    <option>C# ASP.NET Core Web App</option>
+  </select>
+
+  <label for="message">Project Details</label>
+  <textarea id="message" name="message" placeholder="Tell me about the system you need..." required></textarea>
+
+  <button type="submit" class="btn btn-primary" id="sendBtn">Send Inquiry</button>
+
+  <p style="color: var(--muted); margin-top: 14px;">
+    Your inquiry will be sent directly to my Gmail.
+  </p>
+</form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="floating-socials">
+    <a href="https://github.com/ChristianPaulCQuema" target="_blank" title="GitHub">GH</a>
+    <a href="https://www.facebook.com/christianpaulc.quema" target="_blank" title="Facebook">FB</a>
+   <a href="mailto:quemapaulchristian0@gmail.com" title="Email">@</a>
+  </div>
+
+  <div class="popup-overlay" id="popupOverlay">
+  <div class="popup-box">
+    <div class="popup-icon">&#9989;</div>
+    <h2>Inquiry Sent!</h2>
+    <p>Please wait for my reply in your email. Thank you for contacting me.</p>
+    <button class="btn btn-primary" id="closePopup">Okay</button>
+  </div>
+</div>
+
+  <div class="gallery-modal" id="lakbaygoGallery" aria-hidden="true">
+    <div class="gallery-dialog" role="dialog" aria-modal="true" aria-labelledby="lakbaygoGalleryTitle">
+      <div class="gallery-header">
+        <div>
+          <p class="gallery-kicker">Project Gallery</p>
+          <h2 id="lakbaygoGalleryTitle">LakbayGo Screenshots</h2>
+        </div>
+        <button class="gallery-close" type="button" data-gallery-close aria-label="Close gallery">&times;</button>
+      </div>
+
+      <figure class="gallery-preview">
+        <img id="galleryPreviewImage" src="lakbaygo/01-home.png" alt="LakbayGo home page screenshot">
+        <figcaption id="galleryPreviewCaption">Home</figcaption>
+      </figure>
+
+      <div class="gallery-grid" aria-label="LakbayGo screenshot thumbnails">
+        <button type="button" class="gallery-thumb active" data-gallery-src="lakbaygo/01-home.png" data-gallery-title="Home"><img src="lakbaygo/01-home.png" alt="Home screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/02-travel-packages.png" data-gallery-title="Travel Packages"><img src="lakbaygo/02-travel-packages.png" alt="Travel packages screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/03-destination.png" data-gallery-title="Destination"><img src="lakbaygo/03-destination.png" alt="Destination screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/04-contact.png" data-gallery-title="Contact"><img src="lakbaygo/04-contact.png" alt="Contact screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/05-login.png" data-gallery-title="Login"><img src="lakbaygo/05-login.png" alt="Login screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/06-create-account.png" data-gallery-title="Create Account"><img src="lakbaygo/06-create-account.png" alt="Create account screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/07-package-details-boracay.png" data-gallery-title="Package Details"><img src="lakbaygo/07-package-details-boracay.png" alt="Package details screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/08-admin-dashboard.png" data-gallery-title="Admin Dashboard"><img src="lakbaygo/08-admin-dashboard.png" alt="Admin dashboard screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/09-admin-bookings.png" data-gallery-title="Admin Bookings"><img src="lakbaygo/09-admin-bookings.png" alt="Admin bookings screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/10-admin-destinations.png" data-gallery-title="Admin Destinations"><img src="lakbaygo/10-admin-destinations.png" alt="Admin destinations screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/11-admin-packages.png" data-gallery-title="Admin Packages"><img src="lakbaygo/11-admin-packages.png" alt="Admin packages screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/12-admin-reports.png" data-gallery-title="Admin Reports"><img src="lakbaygo/12-admin-reports.png" alt="Admin reports screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/13-admin-inquiries.png" data-gallery-title="Admin Inquiries"><img src="lakbaygo/13-admin-inquiries.png" alt="Admin inquiries screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/14-admin-settings.png" data-gallery-title="Admin Settings"><img src="lakbaygo/14-admin-settings.png" alt="Admin settings screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/15-customer-dashboard.png" data-gallery-title="Customer Dashboard"><img src="lakbaygo/15-customer-dashboard.png" alt="Customer dashboard screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/16-customer-book-new-trip.png" data-gallery-title="Book New Trip"><img src="lakbaygo/16-customer-book-new-trip.png" alt="Book new trip screenshot"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/17-customer-my-profile.png" data-gallery-title="Customer Profile"><img src="lakbaygo/17-customer-my-profile.png" alt="Customer profile screenshot"></button>
+      </div>
+    </div>
+  </div>
+
+  <a href="#home" class="back-top" id="backTop">&uarr;</a>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Christian Paul Quema. Full-Stack Web Developer. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,1896 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Christian Paul Quema - Full-Stack Developer portfolio for PHP, C#, ASP.NET Core, MySQL, and business web systems." />
+  <title>Christian Paul Quema | Full-Stack Developer Portfolio</title>
+
+  <link rel="icon" type="image/png" href="assets/img/logo.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --bg-2: #0f172a;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-2: rgba(255, 255, 255, 0.14);
+      --text: #f8fafc;
+      --muted: #b8c4d6;
+      --primary: #38bdf8;
+      --primary-2: #22c55e;
+      --border: rgba(255, 255, 255, 0.14);
+      --shadow: rgba(0, 0, 0, 0.35);
+    }
+
+    body.light {
+      --bg: #f7fafc;
+      --bg-2: #eaf3ff;
+      --card: rgba(255, 255, 255, 0.85);
+      --card-2: rgba(15, 23, 42, 0.08);
+      --text: #0f172a;
+      --muted: #475569;
+      --border: rgba(15, 23, 42, 0.12);
+      --shadow: rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.18), transparent 35%),
+        linear-gradient(135deg, var(--bg), var(--bg-2));
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: auto;
+    }
+
+    section {
+      padding: 90px 0;
+      position: relative;
+    }
+
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+    }
+
+    .preloader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-box {
+      text-align: center;
+      color: var(--text);
+    }
+
+    .loader-circle {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: 4px solid rgba(255,255,255,0.15);
+      border-top-color: var(--primary);
+      animation: spin 1s linear infinite;
+      margin: 0 auto 15px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .noise {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: linear-gradient(45deg, #fff 25%, transparent 25%),
+        linear-gradient(-45deg, #fff 25%, transparent 25%);
+      background-size: 6px 6px;
+      z-index: -1;
+    }
+
+    .blob {
+      position: fixed;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      filter: blur(70px);
+      opacity: 0.35;
+      z-index: -2;
+      animation: float 8s ease-in-out infinite;
+    }
+
+    .blob.one {
+      background: #38bdf8;
+      top: 120px;
+      left: -100px;
+    }
+
+    .blob.two {
+      background: #22c55e;
+      right: -100px;
+      top: 280px;
+      animation-delay: 1.5s;
+    }
+
+    .blob.three {
+      background: #a855f7;
+      left: 40%;
+      bottom: -120px;
+      animation-delay: 3s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-25px); }
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 999;
+      background: rgba(7, 17, 31, 0.7);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    body.light header {
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      min-height: 76px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .nav-links a,
+    .theme-toggle,
+    .menu-btn {
+      color: var(--text);
+      border: 1px solid transparent;
+      background: transparent;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover,
+    .theme-toggle:hover {
+      color: var(--primary);
+    }
+
+    .theme-toggle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border-color: var(--border);
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid var(--border);
+      padding: 10px 16px;
+      border-radius: 999px;
+    }
+
+    .hero {
+      padding-top: 150px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 35px;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      background: var(--primary-2);
+      border-radius: 50%;
+      box-shadow: 0 0 14px var(--primary-2);
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 1;
+      margin-bottom: 18px;
+      letter-spacing: -2px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .typing-line {
+      font-size: 1.15rem;
+      margin-bottom: 18px;
+      color: var(--muted);
+      min-height: 30px;
+    }
+
+    .typing-label {
+      margin-right: 8px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .cursor {
+      color: var(--primary);
+      animation: blink 0.7s infinite;
+    }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    .hero p,
+    .section-title p,
+    .card p,
+    details p,
+    .cta p {
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 28px 0;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 12px 20px;
+      font-weight: 700;
+      border: none;
+      transition: 0.25s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      color: #06111f;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: var(--card);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px var(--shadow);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .stat,
+    .card,
+    .profile-card,
+    .cta,
+    details,
+    form,
+    .gallery-dialog {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      box-shadow: 0 18px 55px var(--shadow);
+      backdrop-filter: blur(18px);
+    }
+
+    .stat {
+      padding: 18px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      color: var(--primary);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .profile-card {
+      padding: 28px;
+      text-align: center;
+    }
+
+    .avatar-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .avatar {
+      width: 170px;
+      height: 170px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--primary);
+      box-shadow: 0 0 35px rgba(56,189,248,0.35);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .profile-card h2 {
+      margin-bottom: 10px;
+    }
+
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+      justify-content: center;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 11px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: 0.9rem;
+    }
+
+    .section-title {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 45px;
+    }
+
+    .section-title span,
+    .gallery-kicker {
+      color: var(--primary);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      font-size: 0.82rem;
+    }
+
+    .section-title h2,
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin: 12px 0;
+    }
+
+    .card {
+      padding: 28px;
+      height: 100%;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-2));
+      color: #06111f;
+      font-size: 1.6rem;
+      margin-bottom: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .about-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .about-item {
+      display: flex;
+      gap: 12px;
+    }
+
+    .check {
+      min-width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--primary-2);
+      font-weight: 900;
+    }
+
+    .project-toolbar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .filter-btn {
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      color: #06111f;
+    }
+
+    .project-card {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .project-image {
+      min-height: 210px;
+      display: flex;
+      align-items: end;
+      padding: 24px;
+      background:
+        linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.72)),
+        radial-gradient(circle at top left, rgba(56,189,248,0.4), transparent 40%),
+        linear-gradient(135deg, #0f172a, #14532d);
+    }
+
+    .project-image h3 {
+      color: white;
+      margin: 0;
+    }
+
+    .project-body {
+      padding: 25px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .small-link {
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 9px 13px;
+      font-weight: 700;
+    }
+
+    .disabled-link {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .skills-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .skill-logo-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .skill-logo-item {
+      text-align: center;
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.05);
+    }
+
+    .skill-logo-item i {
+      font-size: 2rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .skill-bar {
+      margin-bottom: 22px;
+    }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      gap: 12px;
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .skill-top i {
+      margin-right: 5px;
+    }
+
+    .bar {
+      height: 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.1);
+      overflow: hidden;
+    }
+
+    .fill {
+      height: 100%;
+      width: var(--width);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      padding: 24px;
+      border-left: 4px solid var(--primary);
+      background: var(--card);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+    }
+
+    .timeline-item small {
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .pricing-card {
+      position: relative;
+    }
+
+    .price {
+      font-size: 2.1rem;
+      font-weight: 900;
+      color: var(--primary);
+      margin: 12px 0;
+    }
+
+    .pricing-card ul {
+      margin-top: 18px;
+      padding-left: 18px;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .popular {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: var(--primary-2);
+      color: #06111f;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-weight: 900;
+      font-size: 0.75rem;
+    }
+
+    details {
+      padding: 22px;
+      margin-bottom: 14px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    details p {
+      margin-top: 12px;
+    }
+
+    .cta {
+      padding: 35px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .contact-info {
+      padding: 28px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 26px;
+      box-shadow: 0 18px 55px var(--shadow);
+    }
+
+    .contact-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-row span {
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .contact-row a {
+      color: var(--primary);
+      text-align: right;
+      word-break: break-word;
+    }
+
+    form {
+      padding: 28px;
+    }
+
+    label {
+      display: block;
+      margin: 14px 0 7px;
+      font-weight: 800;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 14px 15px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      outline: none;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+      color: rgba(184, 196, 214, 0.75);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 4px rgba(56,189,248,0.12);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .floating-socials {
+      position: fixed;
+      right: 18px;
+      bottom: 95px;
+      display: grid;
+      gap: 10px;
+      z-index: 50;
+    }
+
+    .floating-socials a,
+    .back-top {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-weight: 900;
+      box-shadow: 0 12px 30px var(--shadow);
+    }
+
+    .back-top {
+      position: fixed;
+      right: 18px;
+      bottom: 35px;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.25s ease;
+      z-index: 50;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    footer {
+      padding: 28px 0;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      padding: 20px;
+    }
+
+    .popup-overlay.show {
+      display: flex;
+    }
+
+    .popup-box {
+      width: 100%;
+      max-width: 420px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      text-align: center;
+      box-shadow: 0 25px 80px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(18px);
+    }
+
+    .popup-icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+
+    .popup-box p {
+      color: var(--muted);
+      margin-bottom: 22px;
+    }
+
+    .gallery-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 9000;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .gallery-modal.show {
+      display: flex;
+    }
+
+    .gallery-dialog {
+      width: min(1000px, 100%);
+      max-height: 90vh;
+      overflow: auto;
+      padding: 24px;
+    }
+
+    .gallery-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 18px;
+    }
+
+    .gallery-close {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-size: 1.8rem;
+      line-height: 1;
+    }
+
+    .gallery-preview {
+      margin: 0 0 18px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,0.2);
+    }
+
+    .gallery-preview img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .gallery-preview figcaption {
+      padding: 12px 16px;
+      color: var(--muted);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    .gallery-thumb {
+      border: 2px solid transparent;
+      border-radius: 14px;
+      overflow: hidden;
+      background: transparent;
+      cursor: pointer;
+      padding: 0;
+    }
+
+    .gallery-thumb.active {
+      border-color: var(--primary);
+    }
+
+    .gallery-thumb img {
+      width: 100%;
+      height: 90px;
+      object-fit: cover;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: 0.7s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-1 { transition-delay: 0.12s; }
+    .delay-2 { transition-delay: 0.22s; }
+    .delay-3 { transition-delay: 0.32s; }
+
+    @media (max-width: 900px) {
+      .menu-btn {
+        display: block;
+      }
+
+      .navbar {
+        justify-content: space-between;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        border-bottom: 1px solid var(--border);
+        padding: 18px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hero-grid,
+      .about-card,
+      .skills-wrap,
+      .contact-box,
+      .grid-2,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .cta {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      section {
+        padding: 70px 0;
+      }
+
+      .hero {
+        padding-top: 125px;
+      }
+
+      .form-row,
+      .skill-logo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .floating-socials {
+        display: none;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="preloader" id="preloader">
+    <div class="loader-box">
+      <div class="loader-circle"></div>
+      <strong>Loading Portfolio...</strong>
+    </div>
+  </div>
+
+  <div class="noise"></div>
+  <div class="blob one"></div>
+  <div class="blob two"></div>
+  <div class="blob three"></div>
+
+  <header>
+    <div class="container navbar">
+      <button class="menu-btn" id="menuBtn">Menu</button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#pricing">Packages</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="themeToggle" title="Change theme">&#9790;</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="reveal active">
+          <div class="badge"><span class="dot"></span> Available for freelance web systems</div>
+
+          <h1>Full-Stack Developer for <span class="gradient-text">Business Web Systems</span></h1>
+
+          <div class="typing-line">
+            <span class="typing-label">Specialized in</span>
+            <span id="typedText"></span>
+            <span class="cursor">|</span>
+          </div>
+
+          <p>
+            I build custom web systems using PHP, MySQL, Laravel, C#, ASP.NET Core, HTML, CSS, JavaScript, and Bootstrap. I focus on practical systems such as HR portals, barangay management systems, school systems, admin dashboards, and CRUD-based applications.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects</a>
+            <a href="#contact" class="btn btn-outline">Hire Me</a>
+            <a href="assets/cv/christian-quema-cv.pdf" class="btn btn-outline" download>Download CV</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong data-count="6">0</strong>
+              <span>System modules built</span>
+            </div>
+            <div class="stat">
+              <strong data-count="2">0</strong>
+              <span>Main backend stacks</span>
+            </div>
+            <div class="stat">
+              <strong data-count="100">0</strong>
+              <span>Client-focused design</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="profile-card reveal delay-1">
+          <div class="avatar-wrap">
+            <div class="avatar">
+              <img src="assets/img/christian.jpg" alt="Christian Paul Quema profile photo" />
+            </div>
+          </div>
+
+          <h2>Christian Paul Quema</h2>
+          <p>Full-Stack Web Developer specializing in PHP systems, Laravel apps, C# web apps, MySQL databases, and admin dashboards.</p>
+
+          <div class="tech-stack">
+            <span class="chip"><i class="devicon-php-plain colored"></i>PHP</span>
+            <span class="chip"><i class="devicon-laravel-original colored"></i>Laravel</span>
+            <span class="chip"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+            <span class="chip"><i class="devicon-csharp-plain colored"></i>C#</span>
+            <span class="chip"><i class="devicon-dotnetcore-plain colored"></i>ASP.NET Core</span>
+            <span class="chip"><i class="devicon-html5-plain colored"></i>HTML</span>
+            <span class="chip"><i class="devicon-css3-plain colored"></i>CSS</span>
+            <span class="chip"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+            <span class="chip"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+            <span class="chip"><i class="devicon-git-plain colored"></i>Git</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>About Me</span>
+          <h2>I turn manual work into organized web systems</h2>
+          <p>I help schools, barangays, small businesses, and organizations replace slow spreadsheets and paper-based processes with clean dashboards, secure records, and easy-to-use online tools.</p>
+        </div>
+
+        <div class="card about-card reveal delay-1">
+          <div>
+            <h3>Why clients work with me</h3>
+            <p>
+              I build practical web systems that are simple for staff to use and organized for admins to manage. My focus is not only on making a website look good, but on creating a working system that saves time, reduces repeated tasks, keeps records easier to find, and supports real workflows.
+            </p>
+            <p>
+              From planning modules and database structure to building dashboards, forms, reports, user roles, and deployment preparation, I can help turn your idea into a system that feels clear, useful, and ready for real daily use.
+            </p>
+          </div>
+
+          <div class="about-list">
+            <div class="about-item"><span class="check">&#10003;</span><p><strong>Clear project planning:</strong> Module list, user roles, database tables, and workflow planning.</p></div>
+            <div class="about-item"><span class="check">&#10003;</span><p><strong>Business-ready features:</strong> Login, dashboard, CRUD, reports, uploads, and admin controls.</p></div>
+            <div class="about-item"><span class="check">&#10003;</span><p><strong>Easy for users:</strong> Simple layouts for staff, students, employees, residents, or admins.</p></div>
+            <div class="about-item"><span class="check">&#10003;</span><p><strong>Built for real operations:</strong> HR, school, barangay, inventory, booking, and custom systems.</p></div>
+            <div class="about-item"><span class="check">&#10003;</span><p><strong>Full-stack development:</strong> Frontend, backend, database, validation, authentication, and workflows.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Services</span>
+          <h2>What I can build for clients</h2>
+          <p>Websites, dashboards, CRUD systems, database systems, and full-stack web applications.</p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card reveal delay-1">
+            <div class="icon">&#128187;</div>
+            <h3>Custom Web Systems</h3>
+            <p>Complete web-based systems with login, dashboard, CRUD, reports, user roles, and database management.</p>
+          </article>
+
+          <article class="card reveal delay-2">
+            <div class="icon">&#128202;</div>
+            <h3>Admin Dashboards</h3>
+            <p>Clean and responsive dashboards for schools, offices, small businesses, organizations, and barangays.</p>
+          </article>
+
+          <article class="card reveal delay-3">
+            <div class="icon">&#128274;</div>
+            <h3>Login & User Management</h3>
+            <p>Authentication, account approval, roles, profile management, password handling, and user records.</p>
+          </article>
+
+          <article class="card reveal delay-1">
+            <div class="icon">&#128451;</div>
+            <h3>Database Design</h3>
+            <p>MySQL or SQL Server database structure, tables, relationships, and organized data storage.</p>
+          </article>
+
+          <article class="card reveal delay-2">
+            <div class="icon">&#9881;</div>
+            <h3>PHP / Laravel Development</h3>
+            <p>Affordable PHP and Laravel systems for clients who need practical business applications.</p>
+          </article>
+
+          <article class="card reveal delay-3">
+            <div class="icon">&#128640;</div>
+            <h3>C# / ASP.NET Core Apps</h3>
+            <p>Modern C# web apps and APIs for clients who need scalable backend solutions.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Portfolio Projects</span>
+          <h2>Featured systems</h2>
+        </div>
+
+        <div class="project-toolbar reveal delay-1">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="php">PHP</button>
+          <button class="filter-btn" data-filter="csharp">C#</button>
+          <button class="filter-btn" data-filter="school">School</button>
+          <button class="filter-btn" data-filter="business">Business</button>
+        </div>
+
+        <div class="grid-2">
+          <article class="card project-card reveal delay-1" data-category="php business">
+            <div class="project-image">
+              <h3>PTC WorkWise HR & Employee Portal</h3>
+            </div>
+            <div class="project-body">
+              <p>A web-based HR management system with HR and employee accounts, profile management, attendance, employee records, leave requests, documents, and admin dashboard.</p>
+              <div class="tech-stack">
+                <span class="chip"><i class="devicon-php-plain colored"></i>PHP</span>
+                <span class="chip"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+                <span class="chip"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+                <span class="chip"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a class="small-link" href="https://ptcworkwise.com" target="_blank">Live Demo</a>
+                <a class="small-link" href="#">Source Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal delay-2" data-category="php school">
+            <div class="project-image">
+              <h3>JPCS PTC Website</h3>
+            </div>
+            <div class="project-body">
+              <p>A complete organization website for JPCS PTC with public pages for about, mission, membership, events, gallery, officers, contact, online application, and member login.</p>
+              <div class="tech-stack">
+                <span class="chip"><i class="devicon-php-plain colored"></i>PHP</span>
+                <span class="chip"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+                <span class="chip"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+                <span class="chip"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+              </div>
+              <div class="project-links">
+                <a class="small-link" href="https://jpcs.site" target="_blank">Live Demo</a>
+                <a class="small-link" href="#">Source Code</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal delay-1" data-category="php business">
+            <div class="project-image">
+              <h3>LakbayGo Travel Booking System</h3>
+            </div>
+            <div class="project-body">
+              <p>A travel booking web system with destination pages, package details, customer login, booking workflows, profile management, and admin dashboards.</p>
+              <div class="tech-stack">
+                <span class="chip"><i class="devicon-php-plain colored"></i>PHP</span>
+                <span class="chip"><i class="devicon-mysql-plain colored"></i>MySQL</span>
+                <span class="chip"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+                <span class="chip"><i class="devicon-laravel-original colored"></i>Laravel</span>
+              </div>
+              <div class="project-links">
+                <span class="small-link disabled-link">No Live Demo</span>
+                <button class="small-link gallery-trigger" type="button" data-gallery-open>View Gallery</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card reveal delay-2" data-category="csharp business">
+            <div class="project-image">
+              <h3>C# ASP.NET Core CRUD System</h3>
+            </div>
+            <div class="project-body">
+              <p>A C# web application sample with login, dashboard, CRUD operations, database connection, form validation, and MVC architecture.</p>
+              <div class="tech-stack">
+                <span class="chip"><i class="devicon-csharp-plain colored"></i>C#</span>
+                <span class="chip"><i class="devicon-dotnetcore-plain colored"></i>ASP.NET Core</span>
+                <span class="chip"><i class="devicon-microsoftsqlserver-plain colored"></i>SQL Server</span>
+                <span class="chip">MVC</span>
+              </div>
+              <div class="project-links">
+                <a class="small-link" href="#">Live Demo</a>
+                <a class="small-link" href="#">Source Code</a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Skills</span>
+          <h2>Technical skills and tools</h2>
+        </div>
+
+        <div class="skills-wrap">
+          <div class="card reveal delay-1">
+            <h3>Main Stack</h3>
+            <div class="skill-logo-grid">
+              <div class="skill-logo-item"><i class="devicon-html5-plain colored"></i><span>HTML</span></div>
+              <div class="skill-logo-item"><i class="devicon-css3-plain colored"></i><span>CSS</span></div>
+              <div class="skill-logo-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+              <div class="skill-logo-item"><i class="devicon-bootstrap-plain colored"></i><span>Bootstrap</span></div>
+              <div class="skill-logo-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+              <div class="skill-logo-item"><i class="devicon-laravel-original colored"></i><span>Laravel</span></div>
+              <div class="skill-logo-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+              <div class="skill-logo-item"><i class="devicon-csharp-plain colored"></i><span>C#</span></div>
+              <div class="skill-logo-item"><i class="devicon-dotnetcore-plain colored"></i><span>ASP.NET</span></div>
+              <div class="skill-logo-item"><i class="devicon-microsoftsqlserver-plain colored"></i><span>SQL Server</span></div>
+              <div class="skill-logo-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+              <div class="skill-logo-item"><i class="devicon-github-original"></i><span>GitHub</span></div>
+            </div>
+          </div>
+
+          <div class="card reveal delay-2">
+            <div class="skill-bar">
+              <div class="skill-top"><span>HTML / CSS / Bootstrap</span><span>90%</span></div>
+              <div class="bar"><div class="fill" style="--width: 90%"></div></div>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-top"><span>PHP / Laravel / MySQL</span><span>85%</span></div>
+              <div class="bar"><div class="fill" style="--width: 85%"></div></div>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-top"><span>JavaScript</span><span>75%</span></div>
+              <div class="bar"><div class="fill" style="--width: 75%"></div></div>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-top"><span>C# / ASP.NET Core</span><span>65%</span></div>
+              <div class="bar"><div class="fill" style="--width: 65%"></div></div>
+            </div>
+
+            <div class="skill-bar">
+              <div class="skill-top"><span>Database Design</span><span>80%</span></div>
+              <div class="bar"><div class="fill" style="--width: 80%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Work Process</span>
+          <h2>How I handle client projects</h2>
+        </div>
+
+        <div class="timeline reveal delay-1">
+          <div class="timeline-item">
+            <small>Step 1</small>
+            <h3>Requirement Discussion</h3>
+            <p>I ask about the client’s business process, users, pages, modules, reports, and database needs.</p>
+          </div>
+
+          <div class="timeline-item">
+            <small>Step 2</small>
+            <h3>System Design</h3>
+            <p>I prepare the module list, user roles, database structure, and interface flow before coding.</p>
+          </div>
+
+          <div class="timeline-item">
+            <small>Step 3</small>
+            <h3>Development</h3>
+            <p>I build the frontend, backend, database, login, dashboards, CRUD features, and reports.</p>
+          </div>
+
+          <div class="timeline-item">
+            <small>Step 4</small>
+            <h3>Testing & Revision</h3>
+            <p>I test forms, buttons, database saving, login security, role restrictions, and user errors.</p>
+          </div>
+
+          <div class="timeline-item">
+            <small>Step 5</small>
+            <h3>Deployment & Support</h3>
+            <p>I help prepare the system for hosting or local XAMPP use and provide basic instructions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Freelance Packages</span>
+          <h2>Starter pricing ideas</h2>
+        </div>
+
+        <div class="grid-3">
+          <article class="card pricing-card reveal delay-1">
+            <h3>Basic Website</h3>
+            <div class="price">&#8369;3,000+</div>
+            <p>Good for simple business websites, portfolios, and landing pages.</p>
+            <ul>
+              <li>1 to 5 pages</li>
+              <li>Responsive design</li>
+              <li>Contact section</li>
+              <li>Basic revisions</li>
+            </ul>
+          </article>
+
+          <article class="card pricing-card reveal delay-2">
+            <span class="popular">Popular</span>
+            <h3>CRUD Web System</h3>
+            <div class="price">&#8369;8,000+</div>
+            <p>Good for small business systems with login, admin dashboard, records, and database.</p>
+            <ul>
+              <li>Login and dashboard</li>
+              <li>Add, edit, delete, view records</li>
+              <li>MySQL database</li>
+              <li>Basic reports</li>
+            </ul>
+          </article>
+
+          <article class="card pricing-card reveal delay-3">
+            <h3>Complete Management System</h3>
+            <div class="price">&#8369;15,000+</div>
+            <p>Good for HR, school, barangay, inventory, or organization systems with multiple modules.</p>
+            <ul>
+              <li>Multiple user roles</li>
+              <li>Advanced modules</li>
+              <li>Reports and documents</li>
+              <li>Deployment assistance</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>FAQ</span>
+          <h2>Common client questions</h2>
+        </div>
+
+        <div class="reveal delay-1">
+          <details open>
+            <summary>Can you build a system from zero?</summary>
+            <p>Yes. I can help plan the modules, design the database, create the frontend, build the backend, and prepare the system for local or online use.</p>
+          </details>
+
+          <details>
+            <summary>What technologies do you use?</summary>
+            <p>I mainly use PHP, Laravel, MySQL, HTML, CSS, JavaScript, Bootstrap, C#, ASP.NET Core, and SQL Server.</p>
+          </details>
+
+          <details>
+            <summary>Can you revise an existing system?</summary>
+            <p>Yes. I can improve layouts, fix bugs, add modules, update database queries, and improve user experience.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta reveal">
+          <div>
+            <h2>Need a web system for your project or business?</h2>
+            <p>Send your requirements and I can help turn them into a working dashboard, database system, or full web application.</p>
+          </div>
+          <a href="#contact" class="btn btn-primary">Start a Project</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-title reveal">
+          <span>Contact</span>
+          <h2>Let’s build your system</h2>
+        </div>
+
+        <div class="contact-box">
+          <div class="contact-info reveal delay-1">
+            <h3>Available for freelance work</h3>
+            <p>I can help build websites, admin dashboards, database systems, and custom web applications.</p>
+
+            <div class="contact-row"><span>Email</span><a href="mailto:quemapaulchristian0@gmail.com">quemapaulchristian0@gmail.com</a></div>
+            <div class="contact-row"><span>Phone</span><a href="tel:09922147271">09922147271</a></div>
+            <div class="contact-row"><span>Location</span><strong>Philippines</strong></div>
+            <div class="contact-row"><span>GitHub</span><a href="https://github.com/ChristianPaulCQuema" target="_blank">github.com/ChristianPaulCQuema</a></div>
+            <div class="contact-row"><span>Facebook</span><a href="https://www.facebook.com/christianpaulc.quema" target="_blank">facebook.com/christianpaulc.quema</a></div>
+          </div>
+
+          <form id="contactForm" action="https://formspree.io/f/mwvyllpl" method="POST" class="reveal delay-2">
+            <input type="hidden" name="_subject" value="New Portfolio Inquiry from Christian.Dev" />
+
+            <div class="form-row">
+              <div>
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Client name" required />
+              </div>
+
+              <div>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="client@email.com" required />
+              </div>
+            </div>
+
+            <label for="service">Service Needed</label>
+            <input
+              type="text"
+              id="service"
+              name="service"
+              list="serviceOptions"
+              placeholder="Select or type the service needed"
+              required
+            />
+
+            <datalist id="serviceOptions">
+              <option value="Business Website"></option>
+              <option value="Portfolio Website"></option>
+              <option value="CRUD Web System"></option>
+              <option value="Admin Dashboard"></option>
+              <option value="HR Management System"></option>
+              <option value="School Management System"></option>
+              <option value="Barangay Management System"></option>
+              <option value="Inventory Management System"></option>
+              <option value="Booking System"></option>
+              <option value="E-commerce Website"></option>
+              <option value="PHP MySQL Web System"></option>
+              <option value="Laravel Web System"></option>
+              <option value="C# ASP.NET Core Web App"></option>
+              <option value="Capstone / School Project Assistance"></option>
+              <option value="System Revision / Bug Fixing"></option>
+              <option value="Other Custom System"></option>
+            </datalist>
+
+            <label for="budget">Estimated Budget</label>
+            <input
+              type="text"
+              id="budget"
+              name="budget"
+              placeholder="Example: ₱3,000 - ₱15,000 or not sure yet"
+            />
+
+            <label for="message">Project Details</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Tell me about the system you need..."
+              required
+            ></textarea>
+
+            <button type="submit" class="btn btn-primary" id="sendBtn">Send Inquiry</button>
+
+            <p style="color: var(--muted); margin-top: 14px;">
+              Your inquiry will be sent directly to my Gmail.
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="floating-socials">
+    <a href="https://github.com/ChristianPaulCQuema" target="_blank" title="GitHub">GH</a>
+    <a href="https://www.facebook.com/christianpaulc.quema" target="_blank" title="Facebook">FB</a>
+    <a href="mailto:quemapaulchristian0@gmail.com" title="Email">@</a>
+  </div>
+
+  <div class="popup-overlay" id="popupOverlay">
+    <div class="popup-box">
+      <div class="popup-icon">&#9989;</div>
+      <h2>Inquiry Sent!</h2>
+      <p>Please wait for my reply in your email. Thank you for contacting me.</p>
+      <button class="btn btn-primary" id="closePopup">Okay</button>
+    </div>
+  </div>
+
+  <div class="gallery-modal" id="lakbaygoGallery" aria-hidden="true">
+    <div class="gallery-dialog" role="dialog" aria-modal="true">
+      <div class="gallery-header">
+        <div>
+          <p class="gallery-kicker">Project Gallery</p>
+          <h2>LakbayGo Screenshots</h2>
+        </div>
+        <button class="gallery-close" type="button" data-gallery-close>&times;</button>
+      </div>
+
+      <figure class="gallery-preview">
+        <img id="galleryPreviewImage" src="lakbaygo/01-home.png" alt="LakbayGo screenshot">
+        <figcaption id="galleryPreviewCaption">Home</figcaption>
+      </figure>
+
+      <div class="gallery-grid">
+        <button type="button" class="gallery-thumb active" data-gallery-src="lakbaygo/01-home.png" data-gallery-title="Home"><img src="lakbaygo/01-home.png" alt="Home"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/02-travel-packages.png" data-gallery-title="Travel Packages"><img src="lakbaygo/02-travel-packages.png" alt="Travel Packages"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/03-destination.png" data-gallery-title="Destination"><img src="lakbaygo/03-destination.png" alt="Destination"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/04-contact.png" data-gallery-title="Contact"><img src="lakbaygo/04-contact.png" alt="Contact"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/05-login.png" data-gallery-title="Login"><img src="lakbaygo/05-login.png" alt="Login"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/06-create-account.png" data-gallery-title="Create Account"><img src="lakbaygo/06-create-account.png" alt="Create Account"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/07-package-details-boracay.png" data-gallery-title="Package Details"><img src="lakbaygo/07-package-details-boracay.png" alt="Package Details"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/08-admin-dashboard.png" data-gallery-title="Admin Dashboard"><img src="lakbaygo/08-admin-dashboard.png" alt="Admin Dashboard"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/09-admin-bookings.png" data-gallery-title="Admin Bookings"><img src="lakbaygo/09-admin-bookings.png" alt="Admin Bookings"></button>
+        <button type="button" class="gallery-thumb" data-gallery-src="lakbaygo/10-admin-destinations.png" data-gallery-title="Admin Destinations"><img src="lakbaygo/10-admin-destinations.png" alt="Admin Destinations"></button>
+      </div>
+    </div>
+  </div>
+
+  <a href="#home" class="back-top" id="backTop">&uarr;</a>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Christian Paul Quema. Full-Stack Web Developer. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const preloader = document.getElementById("preloader");
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+    const themeToggle = document.getElementById("themeToggle");
+    const typedText = document.getElementById("typedText");
+    const backTop = document.getElementById("backTop");
+    const year = document.getElementById("year");
+
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        if (preloader) {
+          preloader.classList.add("hide");
+        }
+      }, 500);
+    });
+
+    if (year) {
+      year.textContent = new Date().getFullYear();
+    }
+
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("show");
+        });
+      });
+    }
+
+    if (themeToggle) {
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light");
+        themeToggle.innerHTML = document.body.classList.contains("light") ? "&#9728;" : "&#9790;";
+      });
+    }
+
+    const typingWords = [
+      "PHP & MySQL Systems",
+      "Laravel Web Apps",
+      "Admin Dashboards",
+      "C# ASP.NET Core Apps",
+      "CRUD Web Systems",
+      "Business Web Applications"
+    ];
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+      if (!typedText) return;
+
+      const currentWord = typingWords[wordIndex];
+
+      if (isDeleting) {
+        typedText.textContent = currentWord.substring(0, charIndex - 1);
+        charIndex--;
+      } else {
+        typedText.textContent = currentWord.substring(0, charIndex + 1);
+        charIndex++;
+      }
+
+      let speed = isDeleting ? 45 : 85;
+
+      if (!isDeleting && charIndex === currentWord.length) {
+        speed = 1300;
+        isDeleting = true;
+      } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        wordIndex = (wordIndex + 1) % typingWords.length;
+        speed = 350;
+      }
+
+      setTimeout(typeEffect, speed);
+    }
+
+    typeEffect();
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    function revealOnScroll() {
+      revealElements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 80) {
+          element.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", revealOnScroll);
+    revealOnScroll();
+
+    const countElements = document.querySelectorAll("[data-count]");
+    let counted = false;
+
+    function animateCounters() {
+      if (counted) return;
+
+      const statsSection = document.querySelector(".stats");
+      if (!statsSection) return;
+
+      const statsTop = statsSection.getBoundingClientRect().top;
+
+      if (statsTop < window.innerHeight - 80) {
+        counted = true;
+
+        countElements.forEach(counter => {
+          const target = Number(counter.dataset.count);
+          let current = 0;
+          const increment = Math.max(1, Math.ceil(target / 60));
+
+          const timer = setInterval(() => {
+            current += increment;
+
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+
+            counter.textContent = current;
+          }, 25);
+        });
+      }
+    }
+
+    window.addEventListener("scroll", animateCounters);
+    animateCounters();
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        projectCards.forEach(card => {
+          const categories = card.dataset.category || "";
+
+          if (filter === "all" || categories.includes(filter)) {
+            card.style.display = "block";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+
+    window.addEventListener("scroll", () => {
+      if (!backTop) return;
+
+      if (window.scrollY > 500) {
+        backTop.classList.add("show");
+      } else {
+        backTop.classList.remove("show");
+      }
+    });
+
+    const galleryModal = document.getElementById("lakbaygoGallery");
+    const galleryOpenButtons = document.querySelectorAll("[data-gallery-open]");
+    const galleryCloseButtons = document.querySelectorAll("[data-gallery-close]");
+    const galleryPreviewImage = document.getElementById("galleryPreviewImage");
+    const galleryPreviewCaption = document.getElementById("galleryPreviewCaption");
+    const galleryThumbs = document.querySelectorAll(".gallery-thumb");
+
+    galleryOpenButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        if (galleryModal) {
+          galleryModal.classList.add("show");
+          galleryModal.setAttribute("aria-hidden", "false");
+        }
+      });
+    });
+
+    galleryCloseButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        if (galleryModal) {
+          galleryModal.classList.remove("show");
+          galleryModal.setAttribute("aria-hidden", "true");
+        }
+      });
+    });
+
+    if (galleryModal) {
+      galleryModal.addEventListener("click", e => {
+        if (e.target === galleryModal) {
+          galleryModal.classList.remove("show");
+          galleryModal.setAttribute("aria-hidden", "true");
+        }
+      });
+    }
+
+    galleryThumbs.forEach(thumb => {
+      thumb.addEventListener("click", () => {
+        galleryThumbs.forEach(item => item.classList.remove("active"));
+        thumb.classList.add("active");
+
+        if (galleryPreviewImage) {
+          galleryPreviewImage.src = thumb.dataset.gallerySrc;
+          galleryPreviewImage.alt = thumb.dataset.galleryTitle;
+        }
+
+        if (galleryPreviewCaption) {
+          galleryPreviewCaption.textContent = thumb.dataset.galleryTitle;
+        }
+      });
+    });
+
+    const contactForm = document.getElementById("contactForm");
+    const popupOverlay = document.getElementById("popupOverlay");
+    const closePopup = document.getElementById("closePopup");
+    const sendBtn = document.getElementById("sendBtn");
+
+    if (contactForm) {
+      contactForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        if (!contactForm.checkValidity()) {
+          contactForm.reportValidity();
+          return;
+        }
+
+        const originalButtonText = sendBtn.textContent;
+        sendBtn.disabled = true;
+        sendBtn.textContent = "Sending...";
+
+        const formData = new FormData(contactForm);
+
+        try {
+          const response = await fetch(contactForm.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+              Accept: "application/json"
+            }
+          });
+
+          if (response.ok) {
+            contactForm.reset();
+
+            if (popupOverlay) {
+              popupOverlay.classList.add("show");
+            }
+          } else {
+            alert("Something went wrong. Please try again.");
+          }
+        } catch (error) {
+          alert("Network error. Please check your internet connection.");
+        } finally {
+          sendBtn.disabled = false;
+          sendBtn.textContent = originalButtonText;
+        }
+      });
+    }
+
+    if (closePopup) {
+      closePopup.addEventListener("click", function () {
+        popupOverlay.classList.remove("show");
+      });
+    }
+
+    if (popupOverlay) {
+      popupOverlay.addEventListener("click", function (e) {
+        if (e.target === popupOverlay) {
+          popupOverlay.classList.remove("show");
+        }
+      });
+    }
+  </script>
+</body>
+</html>

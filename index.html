@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -516,6 +516,7 @@
     }
 
     .project-image {
+      position: relative;
       min-height: 210px;
       display: flex;
       align-items: end;
@@ -526,7 +527,26 @@
         linear-gradient(135deg, #0f172a, #14532d);
     }
 
+    .project-image img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .project-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(rgba(0,0,0,0.08), rgba(0,0,0,0.78));
+      z-index: 1;
+    }
+
     .project-image h3 {
+      position: relative;
+      z-index: 2;
       color: white;
       margin: 0;
     }
@@ -1210,21 +1230,22 @@
         </div>
 
         <div class="grid-2">
-          <article class="card project-card reveal delay-1" data-category="php business">
+          <article class="card project-card reveal delay-1" data-category="php business school">
             <div class="project-image">
-              <h3>PTC WorkWise HR & Employee Portal</h3>
+              <img src="ptcworkwise/screenshots/05_hr_dashboard_ui.png" alt="PTC WorkWise HR Dashboard preview" loading="lazy">
+              <h3>PTC WorkWise</h3>
             </div>
             <div class="project-body">
-              <p>A web-based HR management system with HR and employee accounts, profile management, attendance, employee records, leave requests, documents, and admin dashboard.</p>
+              <p>An intelligent HR and employee portal for Pateros Technological College with role-based modules for HR, Dean, Assistant Dean, and Employee users.</p>
               <div class="tech-stack">
                 <span class="chip"><i class="devicon-php-plain colored"></i>PHP</span>
                 <span class="chip"><i class="devicon-mysql-plain colored"></i>MySQL</span>
-                <span class="chip"><i class="devicon-bootstrap-plain colored"></i>Bootstrap</span>
+                <span class="chip"><i class="devicon-html5-plain colored"></i>HTML</span>
+                <span class="chip"><i class="devicon-css3-plain colored"></i>CSS</span>
                 <span class="chip"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
               </div>
               <div class="project-links">
-                <a class="small-link" href="https://ptcworkwise.com" target="_blank">Live Demo</a>
-                <a class="small-link" href="#">Source Code</a>
+                <a class="small-link" href="ptcworkwise/index.html">View UI Gallery</a>
               </div>
             </div>
           </article>
@@ -1250,6 +1271,7 @@
 
           <article class="card project-card reveal delay-1" data-category="php business">
             <div class="project-image">
+              <img src="lakbaygo/screenshots/01-home.png" alt="LakbayGo home page preview" loading="lazy">
               <h3>LakbayGo Travel Booking System</h3>
             </div>
             <div class="project-body">
@@ -1262,7 +1284,7 @@
               </div>
               <div class="project-links">
                 <span class="small-link disabled-link">No Live Demo</span>
-                <button class="small-link gallery-trigger" type="button" data-gallery-open>View Gallery</button>
+                <a class="small-link" href="lakbaygo/index.html">View Gallery</a>
               </div>
             </div>
           </article>

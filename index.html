@@ -743,6 +743,43 @@
       font-weight: 700;
     }
 
+    .skills-section .skill-animate {
+      opacity: 1;
+      transform: translateY(0);
+      transition: transform 0.55s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .skills-section .skill-animate.is-waiting {
+      transform: translateY(18px);
+    }
+
+    .skills-section .skill-animate.skill-show {
+      animation: skillFadeUp 0.65s ease both;
+      animation-delay: var(--skill-delay, 0ms);
+    }
+
+    @keyframes skillFadeUp {
+      from {
+        opacity: 0.08;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .skills-section.skills-ready .fill {
+      width: 0;
+    }
+
+    .skills-section.skills-ready .skill-show .fill,
+    .skills-section.skills-ready .skill-focus-card.skill-show .fill {
+      width: var(--width);
+      transition: width 1.05s ease;
+      transition-delay: calc(var(--skill-delay, 0ms) + 120ms);
+    }
+
     .timeline {
       display: grid;
       gap: 18px;
@@ -1326,16 +1363,16 @@
       </div>
     </section>
 
-    <section id="skills">
+    <section id="skills" class="skills-section">
       <div class="container">
-        <div class="section-title reveal">
+        <div class="section-title skill-animate">
           <span>Technical Focus</span>
           <h2>Skills &amp; Technical Focus</h2>
           <p>My main focus is game development, especially visual novel systems, Unity, Godot, Ren'Py, game UI, and interactive storytelling. I also build web systems, mobile application concepts, database-driven applications, UI/UX layouts, and capstone system documentation.</p>
         </div>
 
         <div class="skills-focus">
-          <article class="card skill-focus-card reveal delay-1">
+          <article class="card skill-focus-card skill-animate">
             <div class="skill-meta">Primary Focus</div>
             <h3>Game Development</h3>
             <p>I focus on building interactive game experiences, visual novels, story-based systems, game UI, scene flow, character presentation, and asset integration using tools such as Ren'Py, Unity, and Godot.</p>
@@ -1355,132 +1392,117 @@
             </div>
           </article>
 
-          <article class="card skill-card reveal delay-2">
+          <article class="card skill-card skill-animate">
             <h3>Game Development <span class="skill-percent">80%</span></h3>
-            <div class="skill-bar">
-              <div class="skill-top"><span>Ren'Py</span><span>85%</span></div>
-              <div class="bar"><div class="fill" style="--width: 85%"></div></div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-top"><span>Visual Novel Development</span><span>85%</span></div>
-              <div class="bar"><div class="fill" style="--width: 85%"></div></div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-top"><span>Unity</span><span>80%</span></div>
-              <div class="bar"><div class="fill" style="--width: 80%"></div></div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-top"><span>Godot</span><span>75%</span></div>
-              <div class="bar"><div class="fill" style="--width: 75%"></div></div>
-            </div>
-            <div class="skill-bar">
-              <div class="skill-top"><span>Game UI Design</span><span>80%</span></div>
-              <div class="bar"><div class="fill" style="--width: 80%"></div></div>
-            </div>
+            <div class="skill-bar"><div class="skill-top"><span>Ren'Py</span><span>85%</span></div><div class="bar"><div class="fill" style="--width: 85%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Visual Novel Development</span><span>85%</span></div><div class="bar"><div class="fill" style="--width: 85%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Unity</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Godot</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Game UI Design</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Dialogue System Design</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Game Scripting</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Character Sprite Management</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Background and Scene Transitions</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>OST / Voice / Audio Integration</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Game Testing and Packaging</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
           </article>
         </div>
 
         <div class="skill-category-grid">
-          <article class="card skill-card reveal delay-1">
-            <h3>Game Engines &amp; Tools <span class="skill-percent">80%</span></h3>
-            <div class="skill-bar"><div class="skill-top"><span>Game Scripting</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Dialogue System Design</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Character / Sprite Implementation</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+          <article class="card skill-card skill-animate">
+            <h3>Game Engines &amp; Tools <span class="skill-percent">75%</span></h3>
+            <div class="skill-bar"><div class="skill-top"><span>Unity Editor</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Godot Editor</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Ren'Py Launcher</span><span>85%</span></div><div class="bar"><div class="fill" style="--width: 85%"></div></div></div>
             <div class="skill-bar"><div class="skill-top"><span>Game Asset Integration</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
             <div class="skill-bar"><div class="skill-top"><span>Game Testing and Debugging</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
             <div class="skill-list">
-              <span>Background and Scene Transitions</span>
-              <span>OST / Voice / Audio Integration</span>
-              <span>Game Testing and Packaging</span>
+              <span>Visual Novel Flow</span>
+              <span>Sprite Implementation</span>
+              <span>Scene Packaging</span>
             </div>
           </article>
 
-          <article class="card skill-card reveal delay-2">
+          <article class="card skill-card skill-animate">
             <h3>Web Development <span class="skill-percent">70%</span></h3>
-            <div class="skill-bar"><div class="skill-top"><span>HTML/CSS</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>HTML5</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>CSS3</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
             <div class="skill-bar"><div class="skill-top"><span>JavaScript</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>PHP and MySQL</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Dashboard Systems</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-list">
-              <span>Bootstrap / Responsive Design</span>
-              <span>CRUD Systems</span>
-              <span>Login and Role-Based Access</span>
-              <span>File Upload Systems</span>
-            </div>
+            <div class="skill-bar"><div class="skill-top"><span>PHP</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>MySQL</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Bootstrap / Responsive Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Dashboard UI Development</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>CRUD Systems</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Login and Role-Based Access</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>File Upload Systems</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
           </article>
 
-          <article class="card skill-card reveal delay-1">
+          <article class="card skill-card skill-animate">
             <h3>Mobile Application Development <span class="skill-percent">65%</span></h3>
+            <div class="skill-bar"><div class="skill-top"><span>Mobile Application Development</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
             <div class="skill-bar"><div class="skill-top"><span>Mobile UI Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Responsive Layouts</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Responsive Mobile Layouts</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Android App Concepts</span><span>60%</span></div><div class="bar"><div class="fill" style="--width: 60%"></div></div></div>
             <div class="skill-bar"><div class="skill-top"><span>App Prototype Design</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
             <div class="skill-list">
-              <span>Android App Concepts</span>
               <span>Mobile Navigation Design</span>
               <span>Mobile-Friendly Forms</span>
             </div>
           </article>
 
-          <article class="card skill-card reveal delay-2">
+          <article class="card skill-card skill-animate">
             <h3>Database &amp; Backend <span class="skill-percent">70%</span></h3>
             <div class="skill-bar"><div class="skill-top"><span>Database Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Backend Development</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>CRUD Operations</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>ERD Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>SQL Queries</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>CRUD Operations</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>User Role Management</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Authentication Logic</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Basic Security Practices</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
             <div class="skill-list">
               <span>MySQL</span>
-              <span>ERD</span>
-              <span>User Roles</span>
-              <span>Authentication Logic</span>
               <span>File and Record Management</span>
-              <span>Basic Security Practices</span>
             </div>
           </article>
 
-          <article class="card skill-card reveal delay-1">
+          <article class="card skill-card skill-animate">
             <h3>UI/UX Design <span class="skill-percent">75%</span></h3>
+            <div class="skill-bar"><div class="skill-top"><span>Dashboard Design</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Form Design</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Table Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Modal Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Card Layouts</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
             <div class="skill-bar"><div class="skill-top"><span>Game Dialogue UI</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Dashboard and Form Design</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Portfolio Development</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-list">
-              <span>Table Design</span>
-              <span>Modal Design</span>
-              <span>Card Layouts</span>
-              <span>Portfolio Gallery UI</span>
-              <span>Responsive Design</span>
-            </div>
+            <div class="skill-bar"><div class="skill-top"><span>Portfolio Gallery UI</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Responsive Design</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
           </article>
 
-          <article class="card skill-card reveal delay-2">
+          <article class="card skill-card skill-animate">
             <h3>System Analysis &amp; Documentation <span class="skill-percent">70%</span></h3>
-            <div class="skill-bar"><div class="skill-top"><span>System Analysis and Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Diagram Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Flowchart</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>DFD Level 0</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>DFD Level 1</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>Use Case Diagram</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>ERD</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-bar"><div class="skill-top"><span>System Architecture</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
             <div class="skill-bar"><div class="skill-top"><span>Capstone Documentation</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-list">
-              <span>Flowchart</span>
-              <span>DFD Level 0</span>
-              <span>DFD Level 1</span>
-              <span>ERD</span>
-              <span>Use Case Diagram</span>
-              <span>System Architecture</span>
-              <span>Capstone Chapters</span>
-              <span>Project Documentation</span>
-            </div>
+            <div class="skill-bar"><div class="skill-top"><span>Project Documentation</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+            <div class="skill-list"><span>Capstone Chapters</span><span>Project Planning</span></div>
           </article>
         </div>
 
-        <div class="card skill-card reveal delay-1" style="margin-top: 22px;">
+        <div class="card skill-card skill-animate" style="margin-top: 22px;">
           <h3>Development Tools <span class="skill-percent">Tools</span></h3>
           <div class="skill-logo-grid">
             <div class="skill-logo-item"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></div>
             <div class="skill-logo-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
             <div class="skill-logo-item"><i class="devicon-github-original"></i><span>GitHub</span></div>
-            <div class="skill-logo-item"><i class="devicon-figma-plain colored"></i><span>Figma</span></div>
-            <div class="skill-logo-item"><span>Ren'Py</span></div>
+            <div class="skill-logo-item"><i class="devicon-figma-plain colored"></i><span>Figma / Canva</span></div>
+            <div class="skill-logo-item"><span>Ren'Py Launcher</span></div>
             <div class="skill-logo-item"><span>Unity Editor</span></div>
             <div class="skill-logo-item"><span>Godot Editor</span></div>
             <div class="skill-logo-item"><span>XAMPP</span></div>
             <div class="skill-logo-item"><span>Draw.io</span></div>
-            <div class="skill-logo-item"><span>Canva</span></div>
             <div class="skill-logo-item"><span>Browser DevTools</span></div>
           </div>
         </div>
@@ -1951,6 +1973,43 @@
 
     window.addEventListener("scroll", revealOnScroll);
     revealOnScroll();
+
+    const skillsSection = document.querySelector(".skills-section");
+    const skillAnimatedItems = document.querySelectorAll(".skills-section .skill-animate");
+
+    function showSkillItem(item) {
+      if (!item) return;
+      item.classList.remove("is-waiting");
+      item.classList.add("skill-show");
+    }
+
+    if (skillsSection && skillAnimatedItems.length) {
+      skillsSection.classList.add("skills-ready");
+
+      skillAnimatedItems.forEach((item, index) => {
+        item.style.setProperty("--skill-delay", `${Math.min(index * 70, 560)}ms`);
+        item.classList.add("is-waiting");
+      });
+
+      if ("IntersectionObserver" in window) {
+        const skillObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              showSkillItem(entry.target);
+              skillObserver.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+
+        skillAnimatedItems.forEach(item => skillObserver.observe(item));
+      } else {
+        skillAnimatedItems.forEach(showSkillItem);
+      }
+
+      setTimeout(() => {
+        skillAnimatedItems.forEach(showSkillItem);
+      }, 1000);
+    }
 
     const countElements = document.querySelectorAll("[data-count]");
     let counted = false;

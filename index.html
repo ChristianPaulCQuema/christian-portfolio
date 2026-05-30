@@ -780,6 +780,85 @@
       transition-delay: calc(var(--skill-delay, 0ms) + 120ms);
     }
 
+    .skill-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: -18px 0 28px;
+    }
+
+    .skill-tab {
+      border: 1px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 999px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: 0.25s ease;
+    }
+
+    .skill-tab:hover,
+    .skill-tab.active {
+      background: linear-gradient(90deg, var(--primary), var(--primary-2));
+      border-color: transparent;
+      color: #06111f;
+      box-shadow: 0 0 24px rgba(56, 189, 248, 0.25);
+      transform: translateY(-2px);
+    }
+
+    .skill-panels {
+      display: grid;
+      gap: 22px;
+    }
+
+    .skill-panel {
+      display: block;
+    }
+
+    .skills-tabs-ready .skill-panel {
+      display: none;
+    }
+
+    .skills-tabs-ready .skill-panel.active {
+      display: block;
+    }
+
+    .skill-panel-layout {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 22px;
+      align-items: start;
+    }
+
+    .skill-panel-intro {
+      margin-bottom: 18px;
+    }
+
+    .skill-icon-card,
+    .skill-progress-card {
+      padding: 24px;
+    }
+
+    .skill-icon-card h3,
+    .skill-progress-card h3 {
+      margin-bottom: 10px;
+    }
+
+    .skill-icon-card p,
+    .skill-progress-card p {
+      margin-bottom: 18px;
+    }
+
+    .skill-panel.featured .skill-icon-card,
+    .skill-panel.featured .skill-progress-card {
+      border-color: rgba(56, 189, 248, 0.36);
+      background:
+        linear-gradient(135deg, rgba(56, 189, 248, 0.14), rgba(34, 197, 94, 0.09)),
+        var(--card);
+    }
+
     .timeline {
       display: grid;
       gap: 18px;
@@ -1144,6 +1223,7 @@
       .skills-wrap,
       .skills-focus,
       .skill-category-grid,
+      .skill-panel-layout,
       .contact-box,
       .grid-2,
       .grid-3 {
@@ -1367,144 +1447,280 @@
       <div class="container">
         <div class="section-title skill-animate">
           <span>Technical Focus</span>
-          <h2>Skills &amp; Technical Focus</h2>
-          <p>My main focus is game development, especially visual novel systems, Unity, Godot, Ren'Py, game UI, and interactive storytelling. I also build web systems, mobile application concepts, database-driven applications, UI/UX layouts, and capstone system documentation.</p>
+          <h2>Technical Skills</h2>
+          <p>My main focus is game development, visual novel systems, web systems, mobile application development, and database-driven applications.</p>
         </div>
 
-        <div class="skills-focus">
-          <article class="card skill-focus-card skill-animate">
-            <div class="skill-meta">Primary Focus</div>
-            <h3>Game Development</h3>
-            <p>I focus on building interactive game experiences, visual novels, story-based systems, game UI, scene flow, character presentation, and asset integration using tools such as Ren'Py, Unity, and Godot.</p>
-
-            <div class="tech-stack">
-              <span class="chip">Unity</span>
-              <span class="chip">Godot</span>
-              <span class="chip">Ren'Py</span>
-              <span class="chip">Visual Novel</span>
-              <span class="chip">Game UI</span>
-              <span class="chip">Dialogue System</span>
-            </div>
-
-            <div class="skill-bar">
-              <div class="skill-top"><span>Game Development Overall</span><span>80%</span></div>
-              <div class="bar"><div class="fill" style="--width: 80%"></div></div>
-            </div>
-          </article>
-
-          <article class="card skill-card skill-animate">
-            <h3>Game Development <span class="skill-percent">80%</span></h3>
-            <div class="skill-bar"><div class="skill-top"><span>Ren'Py</span><span>85%</span></div><div class="bar"><div class="fill" style="--width: 85%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Visual Novel Development</span><span>85%</span></div><div class="bar"><div class="fill" style="--width: 85%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Unity</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Godot</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Game UI Design</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Dialogue System Design</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Game Scripting</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Character Sprite Management</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Background and Scene Transitions</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>OST / Voice / Audio Integration</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Game Testing and Packaging</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-          </article>
+        <div class="skill-tabs skill-animate" role="tablist" aria-label="Technical skill categories">
+          <button class="skill-tab active" type="button" data-skill-tab="main">Main Stack</button>
+          <button class="skill-tab" type="button" data-skill-tab="game">Game Dev</button>
+          <button class="skill-tab" type="button" data-skill-tab="mobile">Mobile</button>
+          <button class="skill-tab" type="button" data-skill-tab="web">Web</button>
+          <button class="skill-tab" type="button" data-skill-tab="backend">Backend</button>
+          <button class="skill-tab" type="button" data-skill-tab="uiux">UI/UX</button>
+          <button class="skill-tab" type="button" data-skill-tab="docs">Documentation</button>
+          <button class="skill-tab" type="button" data-skill-tab="tools">Tools</button>
         </div>
 
-        <div class="skill-category-grid">
-          <article class="card skill-card skill-animate">
-            <h3>Game Engines &amp; Tools <span class="skill-percent">75%</span></h3>
-            <div class="skill-bar"><div class="skill-top"><span>Unity Editor</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Godot Editor</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Ren'Py Launcher</span><span>85%</span></div><div class="bar"><div class="fill" style="--width: 85%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Game Asset Integration</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Game Testing and Debugging</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-list">
-              <span>Visual Novel Flow</span>
-              <span>Sprite Implementation</span>
-              <span>Scene Packaging</span>
+        <div class="skill-panels">
+          <article class="skill-panel active skill-animate" data-skill-panel="main">
+            <div class="skill-panel-layout">
+              <div class="card skill-icon-card">
+                <h3>Main Stack</h3>
+                <p>Core technologies I use for portfolio, dashboard, database, and system builds.</p>
+                <div class="skill-logo-grid">
+                  <div class="skill-logo-item"><i class="devicon-html5-plain colored"></i><span>HTML</span></div>
+                  <div class="skill-logo-item"><i class="devicon-css3-plain colored"></i><span>CSS</span></div>
+                  <div class="skill-logo-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+                  <div class="skill-logo-item"><i class="devicon-bootstrap-plain colored"></i><span>Bootstrap</span></div>
+                  <div class="skill-logo-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+                  <div class="skill-logo-item"><i class="devicon-laravel-original colored"></i><span>Laravel</span></div>
+                  <div class="skill-logo-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+                  <div class="skill-logo-item"><i class="devicon-csharp-plain colored"></i><span>C#</span></div>
+                  <div class="skill-logo-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+                  <div class="skill-logo-item"><i class="devicon-github-original"></i><span>GitHub</span></div>
+                  <div class="skill-logo-item"><span>SQL</span></div>
+                  <div class="skill-logo-item"><span>Database Design</span></div>
+                </div>
+              </div>
+              <div class="card skill-progress-card">
+                <h3>Learning Progress</h3>
+                <div class="skill-bar"><div class="skill-top"><span>HTML / CSS / Bootstrap</span><span>90%</span></div><div class="bar"><div class="fill" style="--width: 90%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>PHP / Laravel / MySQL</span><span>85%</span></div><div class="bar"><div class="fill" style="--width: 85%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>JavaScript</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>C# / ASP.NET Core Concepts</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Database Design</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+              </div>
             </div>
           </article>
 
-          <article class="card skill-card skill-animate">
-            <h3>Web Development <span class="skill-percent">70%</span></h3>
-            <div class="skill-bar"><div class="skill-top"><span>HTML5</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>CSS3</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>JavaScript</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>PHP</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>MySQL</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Bootstrap / Responsive Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Dashboard UI Development</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>CRUD Systems</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Login and Role-Based Access</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>File Upload Systems</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
-          </article>
-
-          <article class="card skill-card skill-animate">
-            <h3>Mobile Application Development <span class="skill-percent">65%</span></h3>
-            <div class="skill-bar"><div class="skill-top"><span>Mobile Application Development</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Mobile UI Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Responsive Mobile Layouts</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Android App Concepts</span><span>60%</span></div><div class="bar"><div class="fill" style="--width: 60%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>App Prototype Design</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
-            <div class="skill-list">
-              <span>Mobile Navigation Design</span>
-              <span>Mobile-Friendly Forms</span>
+          <article class="skill-panel featured skill-animate" data-skill-panel="game">
+            <div class="skill-panel-layout">
+              <div class="card skill-icon-card">
+                <div class="skill-meta">Strongest Focus</div>
+                <h3>Game Development</h3>
+                <p>Visual novels, interactive scenes, character presentation, dialogue systems, game UI, and asset integration.</p>
+                <div class="skill-logo-grid">
+                  <div class="skill-logo-item"><i class="devicon-unity-plain"></i><span>Unity</span></div>
+                  <div class="skill-logo-item"><i class="devicon-godot-plain colored"></i><span>Godot</span></div>
+                  <div class="skill-logo-item"><span>Ren'Py</span></div>
+                  <div class="skill-logo-item"><i class="devicon-csharp-plain colored"></i><span>C#</span></div>
+                  <div class="skill-logo-item"><span>Game UI</span></div>
+                  <div class="skill-logo-item"><span>Visual Novel</span></div>
+                  <div class="skill-logo-item"><span>Dialogue System</span></div>
+                  <div class="skill-logo-item"><span>Sprite Management</span></div>
+                  <div class="skill-logo-item"><span>Game Testing</span></div>
+                  <div class="skill-logo-item"><span>Audio / OST Integration</span></div>
+                </div>
+              </div>
+              <div class="card skill-progress-card">
+                <h3>Game Development Progress <span class="skill-percent">80%</span></h3>
+                <div class="skill-bar"><div class="skill-top"><span>Game Development Overall</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Ren'Py</span><span>85%</span></div><div class="bar"><div class="fill" style="--width: 85%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Visual Novel Development</span><span>85%</span></div><div class="bar"><div class="fill" style="--width: 85%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Unity</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Godot</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>C# for Game Development</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Game UI Design</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Dialogue System Design</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Game Asset Integration</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Game Testing and Debugging</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+              </div>
             </div>
           </article>
 
-          <article class="card skill-card skill-animate">
-            <h3>Database &amp; Backend <span class="skill-percent">70%</span></h3>
-            <div class="skill-bar"><div class="skill-top"><span>Database Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>ERD Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>SQL Queries</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>CRUD Operations</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>User Role Management</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Authentication Logic</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Basic Security Practices</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
-            <div class="skill-list">
-              <span>MySQL</span>
-              <span>File and Record Management</span>
+          <article class="skill-panel skill-animate" data-skill-panel="mobile">
+            <div class="skill-panel-layout">
+              <div class="card skill-icon-card">
+                <h3>Mobile Application Development</h3>
+                <p>Mobile UI concepts, responsive screens, and app prototype planning.</p>
+                <div class="skill-logo-grid">
+                  <div class="skill-logo-item"><i class="devicon-flutter-plain colored"></i><span>Flutter</span></div>
+                  <div class="skill-logo-item"><i class="devicon-dart-plain colored"></i><span>Dart</span></div>
+                  <div class="skill-logo-item"><i class="devicon-android-plain colored"></i><span>Android</span></div>
+                  <div class="skill-logo-item"><span>Mobile UI</span></div>
+                  <div class="skill-logo-item"><span>Responsive Layout</span></div>
+                  <div class="skill-logo-item"><span>App Prototype</span></div>
+                  <div class="skill-logo-item"><span>Firebase Concepts</span></div>
+                  <div class="skill-logo-item"><span>API Integration Concepts</span></div>
+                </div>
+              </div>
+              <div class="card skill-progress-card">
+                <h3>Mobile Progress</h3>
+                <div class="skill-bar"><div class="skill-top"><span>Mobile Application Development</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Flutter</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Dart</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Android App Concepts</span><span>60%</span></div><div class="bar"><div class="fill" style="--width: 60%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Mobile UI Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Responsive Mobile Layouts</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>App Prototype Design</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
+              </div>
             </div>
           </article>
 
-          <article class="card skill-card skill-animate">
-            <h3>UI/UX Design <span class="skill-percent">75%</span></h3>
-            <div class="skill-bar"><div class="skill-top"><span>Dashboard Design</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Form Design</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Table Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Modal Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Card Layouts</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Game Dialogue UI</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Portfolio Gallery UI</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Responsive Design</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+          <article class="skill-panel skill-animate" data-skill-panel="web">
+            <div class="skill-panel-layout">
+              <div class="card skill-icon-card">
+                <h3>Web Development</h3>
+                <p>Frontend and PHP/MySQL systems for dashboards, CRUD apps, forms, authentication, and uploads.</p>
+                <div class="skill-logo-grid">
+                  <div class="skill-logo-item"><i class="devicon-html5-plain colored"></i><span>HTML5</span></div>
+                  <div class="skill-logo-item"><i class="devicon-css3-plain colored"></i><span>CSS3</span></div>
+                  <div class="skill-logo-item"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+                  <div class="skill-logo-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+                  <div class="skill-logo-item"><i class="devicon-laravel-original colored"></i><span>Laravel</span></div>
+                  <div class="skill-logo-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+                  <div class="skill-logo-item"><i class="devicon-bootstrap-plain colored"></i><span>Bootstrap</span></div>
+                  <div class="skill-logo-item"><span>CRUD</span></div>
+                  <div class="skill-logo-item"><span>Authentication</span></div>
+                  <div class="skill-logo-item"><span>Dashboard UI</span></div>
+                  <div class="skill-logo-item"><span>File Upload</span></div>
+                </div>
+              </div>
+              <div class="card skill-progress-card">
+                <h3>Web Progress</h3>
+                <div class="skill-bar"><div class="skill-top"><span>Web Development Overall</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>HTML5</span><span>85%</span></div><div class="bar"><div class="fill" style="--width: 85%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>CSS3</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>JavaScript</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>PHP</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Laravel</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>MySQL</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Bootstrap</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>CRUD Systems</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Login and Role-Based Access</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>File Upload Systems</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
+              </div>
+            </div>
           </article>
 
-          <article class="card skill-card skill-animate">
-            <h3>System Analysis &amp; Documentation <span class="skill-percent">70%</span></h3>
-            <div class="skill-bar"><div class="skill-top"><span>Flowchart</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>DFD Level 0</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>DFD Level 1</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Use Case Diagram</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>ERD</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>System Architecture</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Capstone Documentation</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-bar"><div class="skill-top"><span>Project Documentation</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
-            <div class="skill-list"><span>Capstone Chapters</span><span>Project Planning</span></div>
+          <article class="skill-panel skill-animate" data-skill-panel="backend">
+            <div class="skill-panel-layout">
+              <div class="card skill-icon-card">
+                <h3>Backend and Database</h3>
+                <p>Database-backed systems with user roles, records, reports, authentication, and local development tools.</p>
+                <div class="skill-logo-grid">
+                  <div class="skill-logo-item"><i class="devicon-php-plain colored"></i><span>PHP</span></div>
+                  <div class="skill-logo-item"><i class="devicon-laravel-original colored"></i><span>Laravel</span></div>
+                  <div class="skill-logo-item"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+                  <div class="skill-logo-item"><span>SQL</span></div>
+                  <div class="skill-logo-item"><span>Database Design</span></div>
+                  <div class="skill-logo-item"><span>ERD</span></div>
+                  <div class="skill-logo-item"><span>Authentication</span></div>
+                  <div class="skill-logo-item"><span>User Roles</span></div>
+                  <div class="skill-logo-item"><span>Reports</span></div>
+                  <div class="skill-logo-item"><span>XAMPP</span></div>
+                </div>
+              </div>
+              <div class="card skill-progress-card">
+                <h3>Backend Progress</h3>
+                <div class="skill-bar"><div class="skill-top"><span>Backend Development</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>PHP Backend</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Laravel Backend</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>MySQL Database</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>SQL Queries</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>ERD Design</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Authentication Logic</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Role-Based Access Control</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Basic Security Practices</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
+              </div>
+            </div>
           </article>
-        </div>
 
-        <div class="card skill-card skill-animate" style="margin-top: 22px;">
-          <h3>Development Tools <span class="skill-percent">Tools</span></h3>
-          <div class="skill-logo-grid">
-            <div class="skill-logo-item"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></div>
-            <div class="skill-logo-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
-            <div class="skill-logo-item"><i class="devicon-github-original"></i><span>GitHub</span></div>
-            <div class="skill-logo-item"><i class="devicon-figma-plain colored"></i><span>Figma / Canva</span></div>
-            <div class="skill-logo-item"><span>Ren'Py Launcher</span></div>
-            <div class="skill-logo-item"><span>Unity Editor</span></div>
-            <div class="skill-logo-item"><span>Godot Editor</span></div>
-            <div class="skill-logo-item"><span>XAMPP</span></div>
-            <div class="skill-logo-item"><span>Draw.io</span></div>
-            <div class="skill-logo-item"><span>Browser DevTools</span></div>
-          </div>
+          <article class="skill-panel skill-animate" data-skill-panel="uiux">
+            <div class="skill-panel-layout">
+              <div class="card skill-icon-card">
+                <h3>UI/UX and Interface Design</h3>
+                <p>Clean dashboards, forms, tables, modal flows, galleries, and game dialogue interfaces.</p>
+                <div class="skill-logo-grid">
+                  <div class="skill-logo-item"><span>Dashboard Design</span></div>
+                  <div class="skill-logo-item"><span>Form Design</span></div>
+                  <div class="skill-logo-item"><span>Table Design</span></div>
+                  <div class="skill-logo-item"><span>Modal Design</span></div>
+                  <div class="skill-logo-item"><span>Card Layout</span></div>
+                  <div class="skill-logo-item"><span>Game Dialogue UI</span></div>
+                  <div class="skill-logo-item"><span>Portfolio Gallery</span></div>
+                  <div class="skill-logo-item"><span>Responsive Design</span></div>
+                  <div class="skill-logo-item"><i class="devicon-figma-plain colored"></i><span>Figma / Canva</span></div>
+                </div>
+              </div>
+              <div class="card skill-progress-card">
+                <h3>Design Progress</h3>
+                <div class="skill-bar"><div class="skill-top"><span>UI/UX Design</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Dashboard Design</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Form Design</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Table Design</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Modal Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Game Dialogue UI</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Portfolio Gallery UI</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Responsive Design</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="skill-panel skill-animate" data-skill-panel="docs">
+            <div class="skill-panel-layout">
+              <div class="card skill-icon-card">
+                <h3>System Analysis and Documentation</h3>
+                <p>Planning diagrams, architecture, documentation, and capstone system writing.</p>
+                <div class="skill-logo-grid">
+                  <div class="skill-logo-item"><span>Flowchart</span></div>
+                  <div class="skill-logo-item"><span>DFD</span></div>
+                  <div class="skill-logo-item"><span>ERD</span></div>
+                  <div class="skill-logo-item"><span>UML</span></div>
+                  <div class="skill-logo-item"><span>Use Case</span></div>
+                  <div class="skill-logo-item"><span>System Architecture</span></div>
+                  <div class="skill-logo-item"><span>Capstone Documentation</span></div>
+                  <div class="skill-logo-item"><span>Draw.io</span></div>
+                </div>
+              </div>
+              <div class="card skill-progress-card">
+                <h3>Documentation Progress</h3>
+                <div class="skill-bar"><div class="skill-top"><span>System Analysis and Design</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Flowchart</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>DFD Level 0</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>DFD Level 1</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>ERD</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Use Case Diagram</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>System Architecture</span><span>65%</span></div><div class="bar"><div class="fill" style="--width: 65%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Capstone Documentation</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="skill-panel skill-animate" data-skill-panel="tools">
+            <div class="skill-panel-layout">
+              <div class="card skill-icon-card">
+                <h3>Development Tools</h3>
+                <p>Editors, local servers, version control, diagramming, game editors, and browser debugging tools.</p>
+                <div class="skill-logo-grid">
+                  <div class="skill-logo-item"><i class="devicon-vscode-plain colored"></i><span>VS Code</span></div>
+                  <div class="skill-logo-item"><span>XAMPP</span></div>
+                  <div class="skill-logo-item"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+                  <div class="skill-logo-item"><i class="devicon-github-original"></i><span>GitHub</span></div>
+                  <div class="skill-logo-item"><span>Draw.io</span></div>
+                  <div class="skill-logo-item"><i class="devicon-figma-plain colored"></i><span>Figma</span></div>
+                  <div class="skill-logo-item"><span>Canva</span></div>
+                  <div class="skill-logo-item"><span>Unity Editor</span></div>
+                  <div class="skill-logo-item"><span>Godot Editor</span></div>
+                  <div class="skill-logo-item"><span>Ren'Py Launcher</span></div>
+                  <div class="skill-logo-item"><span>Browser DevTools</span></div>
+                  <div class="skill-logo-item"><span>phpMyAdmin</span></div>
+                </div>
+              </div>
+              <div class="card skill-progress-card">
+                <h3>Tool Progress</h3>
+                <div class="skill-bar"><div class="skill-top"><span>VS Code</span><span>85%</span></div><div class="bar"><div class="fill" style="--width: 85%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>XAMPP</span><span>80%</span></div><div class="bar"><div class="fill" style="--width: 80%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Git / GitHub</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Draw.io</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Unity Editor</span><span>75%</span></div><div class="bar"><div class="fill" style="--width: 75%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Godot Editor</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Ren'Py Launcher</span><span>85%</span></div><div class="bar"><div class="fill" style="--width: 85%"></div></div></div>
+                <div class="skill-bar"><div class="skill-top"><span>Browser DevTools</span><span>70%</span></div><div class="bar"><div class="fill" style="--width: 70%"></div></div></div>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
@@ -1975,6 +2191,8 @@
     revealOnScroll();
 
     const skillsSection = document.querySelector(".skills-section");
+    const skillTabs = document.querySelectorAll("[data-skill-tab]");
+    const skillPanels = document.querySelectorAll("[data-skill-panel]");
     const skillAnimatedItems = document.querySelectorAll(".skills-section .skill-animate");
 
     function showSkillItem(item) {
@@ -1983,8 +2201,34 @@
       item.classList.add("skill-show");
     }
 
+    function activateSkillPanel(target) {
+      skillTabs.forEach(tab => {
+        const isActive = tab.dataset.skillTab === target;
+        tab.classList.toggle("active", isActive);
+        tab.setAttribute("aria-selected", isActive ? "true" : "false");
+      });
+
+      skillPanels.forEach(panel => {
+        const isActive = panel.dataset.skillPanel === target;
+        panel.classList.toggle("active", isActive);
+
+        if (isActive) {
+          showSkillItem(panel);
+          panel.querySelectorAll(".fill").forEach(fill => {
+            fill.style.transition = "none";
+            fill.style.width = "0";
+            window.requestAnimationFrame(() => {
+              fill.style.transition = "";
+              fill.style.width = "var(--width)";
+            });
+          });
+        }
+      });
+    }
+
     if (skillsSection && skillAnimatedItems.length) {
       skillsSection.classList.add("skills-ready");
+      skillsSection.classList.add("skills-tabs-ready");
 
       skillAnimatedItems.forEach((item, index) => {
         item.style.setProperty("--skill-delay", `${Math.min(index * 70, 560)}ms`);
@@ -2009,6 +2253,14 @@
       setTimeout(() => {
         skillAnimatedItems.forEach(showSkillItem);
       }, 1000);
+
+      skillTabs.forEach(tab => {
+        tab.addEventListener("click", () => {
+          activateSkillPanel(tab.dataset.skillTab);
+        });
+      });
+
+      activateSkillPanel("main");
     }
 
     const countElements = document.querySelectorAll("[data-count]");
@@ -2192,4 +2444,3 @@
   </script>
 </body>
 </html>
-

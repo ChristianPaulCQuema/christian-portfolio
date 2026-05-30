@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PTC WorkWise UI gallery by Christian Paul Quema.">
+  <title>PTC WorkWise | UI Gallery</title>
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Project navigation">
+      <a class="brand" href="../index.html">Christian.Dev</a>
+      <div class="nav-actions">
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#gallery">Gallery</a>
+        <a class="btn btn-outline" href="../index.html">Back to Portfolio</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Intelligent HR and Employee Portal</p>
+          <h1>PTC WorkWise</h1>
+          <p class="hero-copy">A WorkWise Management System designed for Pateros Technological College, with role-based experiences for HR, Dean, Assistant Dean, and Employee users.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#gallery">View UI Gallery</a>
+            <a class="btn btn-outline" href="../index.html">Back to Portfolio</a>
+          </div>
+        </div>
+        <figure class="hero-preview">
+          <img src="screenshots/05_hr_dashboard_ui.png" alt="PTC WorkWise HR Dashboard interface preview">
+        </figure>
+      </div>
+    </section>
+
+    <section id="overview">
+      <div class="container split">
+        <article class="panel">
+          <p class="eyebrow">Project Overview</p>
+          <h2>Role-based HR operations in one portal</h2>
+          <p>PTC WorkWise supports account management, employee records, department management, document requests, report submissions, faculty schedules, tasks and reminders, announcements, and chat-style communication.</p>
+        </article>
+        <article class="panel">
+          <p class="eyebrow">Technology Stack</p>
+          <div class="tags" aria-label="Technology stack">
+            <span>PHP</span>
+            <span>MySQL</span>
+            <span>HTML</span>
+            <span>CSS</span>
+            <span>JavaScript</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-title">
+          <p class="eyebrow">Core Features</p>
+          <h2>Designed for daily academic HR workflows</h2>
+        </div>
+        <div class="feature-grid">
+          <article>Role-based dashboard</article>
+          <article>HR account management</article>
+          <article>Employee 201 file/profile management</article>
+          <article>Department management</article>
+          <article>Document request and upload module</article>
+          <article>Report request and submission module</article>
+          <article>Faculty load and class schedule module</article>
+          <article>Task and reminder calendar</article>
+          <article>Announcements</article>
+          <article>Chat interface</article>
+          <article>Profile management</article>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <p class="eyebrow">Role-based Modules</p>
+          <h2>Separate tools for each user group</h2>
+        </div>
+        <div class="role-grid">
+          <article class="panel">
+            <h3>HR Module</h3>
+            <p>Controls user accounts, approvals, employee records, departments, documents, reports, schedules, task calendars, announcements, and messaging.</p>
+          </article>
+          <article class="panel">
+            <h3>Dean / Assistant Dean Module</h3>
+            <p>Supports department oversight, professor management, document and report handling, curriculum tools, availability, schedules, tasks, chat, and profile settings.</p>
+          </article>
+          <article class="panel">
+            <h3>Employee Module</h3>
+            <p>Gives employees access to announcements, department details, document requests, report uploads, schedules, availability, tasks, chat, and profile management.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="section-title">
+          <p class="eyebrow">PNG UI Gallery</p>
+          <h2>PTC WorkWise screens</h2>
+          <p id="galleryCount" class="muted">Loading available screenshots...</p>
+        </div>
+        <div id="gallerySections" class="gallery-sections" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="modal-btn close-btn" type="button" id="closeLightbox" aria-label="Close preview">&times;</button>
+    <button class="modal-btn prev-btn" type="button" id="prevImage" aria-label="Previous image">&#8249;</button>
+    <figure class="lightbox-content" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption">
+      <img id="lightboxImage" src="" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+    <button class="modal-btn next-btn" type="button" id="nextImage" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Christian Paul Quema. PTC WorkWise UI Gallery.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

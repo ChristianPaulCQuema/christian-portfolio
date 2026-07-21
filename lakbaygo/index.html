@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LakbayGo travel booking system UI gallery by Christian Paul Quema.">
+  <title>LakbayGo | Case Study</title>
+  <link rel="icon" type="image/png" href="../assets/img/logo.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container" aria-label="Project navigation">
+      <a class="brand" href="../index.html">Christian.Dev</a>
+      <div class="nav-actions">
+        <a class="nav-link" href="#overview">Overview</a>
+        <a class="nav-link" href="#gallery">Gallery</a>
+        <a class="btn btn-outline" href="../index.html">Back to Portfolio</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Travel Booking System</p>
+          <h1>LakbayGo</h1>
+          <p class="hero-copy">A travel booking web system with destination pages, package details, customer login, booking workflows, profile management, and admin dashboards.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#gallery">View UI Gallery</a>
+            <a class="btn btn-outline" href="../index.html">Back to Portfolio</a>
+          </div>
+        </div>
+        <figure class="hero-preview">
+          <img src="screenshots/01-home.png" width="1351" height="2364" alt="LakbayGo home page interface preview">
+        </figure>
+      </div>
+    </section>
+
+    <section id="overview">
+      <div class="container split">
+        <article class="panel">
+          <p class="eyebrow">Project Overview</p>
+          <h2>Booking flows for customers and admins</h2>
+          <p>LakbayGo presents travel destinations, package details, customer booking tools, profile screens, and admin management screens for bookings, packages, destinations, reports, inquiries, and settings.</p>
+        </article>
+        <article class="panel"><p class="eyebrow">Demo Version Tech Stack</p><h2>Accessible interface gallery</h2><div class="tags" aria-label="Demo Version Tech Stack"><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Static Screens</span></div><p>The gallery demonstrates travel and administration screens without connecting to complete booking services.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="section-title">
+          <p class="eyebrow">Screens Included</p>
+          <h2>Public, admin, and customer UI views</h2>
+        </div>
+        <div class="feature-grid">
+          <article>Home and destination pages</article>
+          <article>Travel package listings</article>
+          <article>Login and account creation</article>
+          <article>Package detail view</article>
+          <article>Admin dashboard</article>
+          <article>Bookings management</article>
+          <article>Destination management</article>
+          <article>Package management</article>
+          <article>Reports and inquiries</article>
+          <article>Customer dashboard</article>
+          <article>Trip booking workflow</article>
+          <article>Customer profile</article>
+        </div>
+      </div>
+    </section>
+
+    <section><div class="container"><div class="section-title"><p class="eyebrow">Complete System Tech Stack</p><h2>LakbayGo complete system architecture</h2><p>The accessible portfolio version is optimized for demonstration and can run without a connected production server. The Complete System Tech Stack section documents the full technical architecture used for the complete business system version.</p></div><div class="role-grid">
+      <article class="panel"><h3>Demo Version</h3><p><strong>Frontend:</strong> HTML5, CSS3, and JavaScript gallery components. <strong>Storage:</strong> static screenshot metadata. <strong>Validation:</strong> client-side gallery controls. <strong>Hosting:</strong> static Vercel pages. <strong>Limitation:</strong> no booking records or accounts connect to the gallery.</p></article>
+      <article class="panel"><h3>Complete System Frontend</h3><p>Blade templates, HTML5, CSS3, JavaScript, Bootstrap, responsive customer and admin layouts, accessible forms, client-side validation, booking steps, and dashboard components.</p></article>
+      <article class="panel"><h3>Complete System Backend</h3><p>PHP, Laravel, MVC, routes, controllers, Eloquent models, service layer, server-side validation, booking and availability logic, inquiry processing, notifications, and report generation.</p></article>
+      <article class="panel"><h3>Complete System Database</h3><p>MySQL with users, roles, destinations, packages, availability, customers, bookings, booking statuses, inquiries, payments, reports, and settings; migrations, seeders, foreign keys, indexes, transactions, soft deletes, audits, and backups.</p></article>
+      <article class="panel"><h3>Complete System Authentication</h3><p>Laravel Authentication, secure sessions, password hashing and reset, email verification, Customer and Administrator roles, authorization policies, login rate limiting, and secure logout.</p></article>
+      <article class="panel"><h3>Complete System APIs &amp; Integrations</h3><p>REST and JSON endpoints for destinations, packages, availability, bookings, customers, and reports; email confirmations, calendar integration, payment gateway, PDF itineraries, and Excel export.</p></article>
+      <article class="panel"><h3>Complete System Security</h3><p>CSRF protection, output escaping, Eloquent ORM, input validation and sanitization, authorization policies, rate limiting, HTTPS, secure cookies, environment variables, audit logs, and backup recovery.</p></article>
+      <article class="panel"><h3>Complete System Testing</h3><p>Unit, feature, API, database, availability, booking-state, payment, role-permission, responsive, accessibility, end-to-end, and browser compatibility testing.</p></article>
+      <article class="panel"><h3>Complete System Deployment</h3><p>Laravel-compatible Apache or Nginx hosting, PHP runtime, MySQL server, SSL, domain and environment configuration, migrations, queue worker, scheduled tasks, file storage, logging, backups, and CI/CD when applicable.</p></article>
+    </div><p class="panel"><strong>Connection disclosure:</strong> The public portfolio demo runs independently for easy access. Backend and database services are represented under the Complete System Architecture and are not connected to the public demonstration deployment.</p></div></section>
+
+    <section id="gallery">
+      <div class="container">
+        <div class="section-title">
+          <p class="eyebrow">PNG UI Gallery</p>
+          <h2>LakbayGo screens</h2>
+          <p id="galleryCount" class="muted">Loading available screenshots...</p>
+        </div>
+        <div id="galleryGrid" class="gallery-grid" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="modal-btn close-btn" type="button" id="closeLightbox" aria-label="Close preview">&times;</button>
+    <button class="modal-btn prev-btn" type="button" id="prevImage" aria-label="Previous image">&#8249;</button>
+    <figure class="lightbox-content" role="dialog" aria-modal="true" aria-labelledby="lightboxCaption">
+      <img id="lightboxImage" src="" width="1351" height="1000" alt="">
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+    <button class="modal-btn next-btn" type="button" id="nextImage" aria-label="Next image">&#8250;</button>
+  </div>
+
+  <footer>
+    <div class="container">
+      <p>&copy; <span id="year"></span> Christian Paul Quema. LakbayGo UI Gallery.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

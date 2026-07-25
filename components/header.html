@@ -1,0 +1,33 @@
+<!-- Shared site header. {{base}} is replaced at load time with the current page's
+     path back to the site root ("" at root, "../" inside /pages/ and /projects/). -->
+<div class="container">
+  <nav class="site-nav" aria-label="Primary">
+    <a class="brand" href="{{base}}index.html">
+      <span class="brand__mark" aria-hidden="true">CQ</span>
+      <span>Christian Quema</span>
+    </a>
+
+    <div class="nav-panel" id="primary-navigation" data-nav-panel>
+      <ul class="nav-list">
+        <li><a class="nav-link" href="{{base}}index.html">Home</a></li>
+        <li><a class="nav-link" href="{{base}}pages/about.html">About</a></li>
+        <li><a class="nav-link" href="{{base}}pages/projects.html">Projects</a></li>
+        <li><a class="nav-link" href="{{base}}pages/skills.html">Skills</a></li>
+        <li><a class="nav-link" href="{{base}}pages/experience.html">Experience</a></li>
+        <li><a class="nav-link" href="{{base}}pages/contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-actions">
+      <button class="icon-button" type="button" data-theme-toggle aria-label="Switch theme"></button>
+      <button
+        class="icon-button nav-toggle"
+        type="button"
+        data-nav-toggle
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        aria-label="Open navigation"
+      ></button>
+    </div>
+  </nav>
+</div>

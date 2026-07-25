@@ -1,0 +1,202 @@
+/* Home page */
+
+.hero {
+  padding-block: clamp(2.5rem, 6vw, 5rem) clamp(3rem, 7vw, 5.5rem);
+}
+
+.hero__inner {
+  display: grid;
+  gap: clamp(2.25rem, 6vw, 4rem);
+  align-items: center;
+}
+
+@media (min-width: 56rem) {
+  .hero__inner {
+    grid-template-columns: 1.15fr 0.85fr;
+  }
+}
+
+.hero__copy {
+  min-width: 0;
+}
+
+.hero .eyebrow {
+  margin-bottom: 0.9rem;
+}
+
+.hero__availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-bottom: 1.35rem;
+  padding: 0.35rem 0.85rem;
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+
+.hero__title {
+  font-size: var(--step-4);
+  letter-spacing: -0.04em;
+  line-height: 1.02;
+}
+
+.hero__role {
+  display: block;
+  margin-top: 0.9rem;
+  font-size: var(--step-1);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--text-muted);
+}
+
+/* Secondary location line — quieter than the lede so the hero stays scannable. */
+.hero__meta {
+  max-width: 42rem;
+  margin-top: 0.75rem;
+  font-size: var(--step--1);
+  color: var(--text-subtle);
+  text-wrap: pretty;
+}
+
+.hero__actions {
+  margin-top: 1.85rem;
+}
+
+.hero__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 1.85rem 0 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.hero__tech li {
+  padding: 0.25rem 0.65rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+}
+
+/* Portrait: the frame never crops the face — the image is contained, and the
+   decorative ring sits behind it rather than on top. */
+.hero__portrait {
+  position: relative;
+  width: min(100%, 24rem);
+  margin-inline: auto;
+}
+
+.hero__portrait::before {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  z-index: 0;
+  border-radius: 50%;
+  background: var(--gradient-brand);
+  opacity: 0.16;
+  filter: blur(2.5rem);
+}
+
+.hero__portrait-frame {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: var(--surface-strong);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.hero__portrait-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  object-position: center 22%;
+}
+
+.hero__socials {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  margin-top: 1.15rem;
+}
+
+/* ---------- Stat strip ---------- */
+
+.stat-strip {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat__value {
+  font-size: var(--step-2);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat__label {
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+/* Service card styles live in components.css — they are shared with the About
+   page, which does not load this stylesheet. */
+
+.section-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 2.25rem;
+}
+
+/* ---------- Contact call to action ---------- */
+
+.contact-cta {
+  display: grid;
+  gap: 1.5rem;
+  align-items: center;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background:
+    radial-gradient(28rem 16rem at 6% 0%, color-mix(in srgb, var(--accent) 13%, transparent), transparent 68%),
+    var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+
+@media (min-width: 48rem) {
+  .contact-cta {
+    grid-template-columns: 1.4fr auto;
+  }
+}
+
+.contact-cta h2 {
+  font-size: var(--step-2);
+}
+
+.contact-cta p {
+  max-width: 38rem;
+  margin-top: 0.5rem;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}

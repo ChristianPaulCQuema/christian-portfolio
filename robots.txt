@@ -1,5 +1,0 @@
-User-agent: *
-Allow: /
-Disallow: /pages/project-details.html
-
-Sitemap: https://christian-portfolio-theta.vercel.app/sitemap.xml

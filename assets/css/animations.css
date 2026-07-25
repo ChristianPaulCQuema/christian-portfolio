@@ -1,0 +1,160 @@
+/* Motion layer. Everything here degrades to "no motion" under prefers-reduced-motion. */
+
+/* ---------- Page entrance ---------- */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.9rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.js-enabled main {
+  animation: fade-in var(--dur-slow) var(--ease-out) both;
+}
+
+/* ---------- Scroll reveal ---------- */
+/* Only applied once JS confirms IntersectionObserver support, so content is
+   never left invisible if the script fails to load. */
+
+.motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translateY(1.1rem);
+}
+
+.motion-ready [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+  transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* ---------- Hero text reveal ---------- */
+
+.js-enabled .hero__line {
+  animation: fade-up 780ms var(--ease-out) both;
+  animation-delay: var(--line-delay, 0ms);
+}
+
+/* ---------- Animated gradient wash on the hero heading ---------- */
+
+@keyframes gradient-drift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.hero__title .text-gradient {
+  background-size: 200% auto;
+  animation: gradient-drift 9s var(--ease-in-out) infinite;
+}
+
+/* ---------- Availability pulse ---------- */
+
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--status-live) 55%, transparent);
+  }
+  70% {
+    box-shadow: 0 0 0 0.55rem transparent;
+  }
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.status-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--status-live);
+  animation: pulse-ring 2.4s var(--ease-out) infinite;
+}
+
+/* ---------- Filter transitions ---------- */
+
+.project-card {
+  animation: fade-up 420ms var(--ease-out) both;
+  animation-delay: var(--card-delay, 0ms);
+}
+
+/* ---------- Cursor glow (desktop, fine pointer only) ---------- */
+
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 26rem;
+  height: 26rem;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 13%, transparent), transparent 62%);
+  transform: translate3d(var(--x, 50vw), var(--y, 50vh), 0) translate(-50%, -50%);
+  transition: opacity 500ms var(--ease-out);
+}
+
+.cursor-glow.is-active {
+  opacity: 1;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-glow {
+    display: none;
+  }
+}
+
+/* ---------- Reduced motion & low-power ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .motion-ready [data-reveal],
+  .js-enabled .hero__line,
+  .project-card {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .cursor-glow,
+  .bg-field::before {
+    display: none;
+  }
+}
+
+/* Drop the expensive blurred background layers on small screens. */
+@media (max-width: 48rem) {
+  .bg-field::after {
+    display: none;
+  }
+
+  .card,
+  .modal {
+    backdrop-filter: none;
+  }
+}

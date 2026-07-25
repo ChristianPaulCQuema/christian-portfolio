@@ -1,0 +1,111 @@
+/* Standalone Mobile IT Inventory Scanner demo */
+
+.demo-shell {
+  width: min(100%, 24rem);
+  margin-inline: auto;
+  overflow: hidden;
+  background: var(--surface-solid);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.demo-head {
+  padding: 1.25rem;
+  color: #fff;
+  background: var(--gradient-brand);
+}
+
+.demo-head strong {
+  display: block;
+  font-size: var(--step-1);
+}
+
+.demo-head p {
+  margin: 0;
+  font-size: var(--step--1);
+  opacity: 0.85;
+}
+
+.demo-body {
+  padding: 1.15rem;
+}
+
+.demo-tabs {
+  display: grid;
+  gap: 0.35rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  padding: 0.25rem;
+  background: var(--surface-strong);
+  border-radius: var(--radius-xs);
+}
+
+.demo-tabs button {
+  min-height: 2.5rem;
+  font-size: 0.8125rem;
+  font-weight: 650;
+  color: var(--text-muted);
+  border-radius: calc(var(--radius-xs) - 0.2rem);
+  transition: color var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out);
+}
+
+.demo-tabs button[aria-selected="true"] {
+  color: var(--text-on-accent);
+  background: var(--accent);
+}
+
+.demo-panel {
+  padding-top: 1.15rem;
+}
+
+.scan-box {
+  display: grid;
+  gap: 0.65rem;
+  padding: 1.25rem;
+  text-align: center;
+  border: 2px dashed color-mix(in srgb, var(--accent) 45%, transparent);
+  border-radius: var(--radius-sm);
+}
+
+.scan-box strong {
+  font-size: var(--step-0);
+}
+
+.scan-box p {
+  margin: 0;
+  font-size: var(--step--1);
+  color: var(--text-muted);
+}
+
+.asset-list {
+  display: grid;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.asset-list li {
+  padding: 0.75rem 0.85rem;
+  font-size: var(--step--1);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xs);
+}
+
+.asset-list strong {
+  display: block;
+  color: var(--text);
+}
+
+.asset-list span {
+  color: var(--text-muted);
+}
+
+.demo-message {
+  min-height: 1.5rem;
+  margin: 1rem 0 0;
+  font-size: var(--step--1);
+  font-weight: 650;
+  color: var(--accent);
+}

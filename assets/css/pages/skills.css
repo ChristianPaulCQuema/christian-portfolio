@@ -1,2 +1,0 @@
-.skill-summary{display:flex;flex-wrap:wrap;gap:.7rem 1.25rem;align-items:center;margin-bottom:1.25rem;padding:1rem 1.15rem;border:1px solid var(--border);border-radius:var(--radius-lg);background:var(--surface-solid);box-shadow:var(--shadow-sm)}
-.skill-summary strong{font-size:1.05rem;color:var(--accent)}.skill-summary span{font-size:.85rem;color:var(--text-muted)}

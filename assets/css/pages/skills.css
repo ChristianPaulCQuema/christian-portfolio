@@ -1,0 +1,133 @@
+.skill-summary {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+  padding: 1.25rem 1.4rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 18%, var(--border));
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, color-mix(in srgb, var(--surface-solid) 94%, transparent), color-mix(in srgb, var(--accent) 7%, var(--surface-solid)));
+  box-shadow: var(--shadow-sm);
+}
+.skill-summary::after {
+  content: "";
+  position: absolute;
+  width: 12rem;
+  height: 12rem;
+  right: -4rem;
+  top: -7rem;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent) 16%, transparent);
+  filter: blur(30px);
+  pointer-events: none;
+}
+.skill-summary__eyebrow { display:block; margin-bottom:.25rem; color:var(--accent); font-size:.7rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+.skill-summary strong { display:block; color:var(--text); font-size:clamp(1rem,2vw,1.2rem); }
+.skill-summary p { max-width:38rem; margin:0; color:var(--text-muted); font-size:.88rem; }
+
+.stack-marquee { display:grid; gap:1rem; margin-bottom:clamp(2.5rem,6vw,4rem); }
+.stack-marquee--bleed { width:100vw; margin-inline:calc(50% - 50vw); padding-inline:clamp(.65rem,2vw,1.5rem); }
+.skill-lane {
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(165px,220px) minmax(0,1fr);
+  align-items:center;
+  gap:1rem;
+  min-width:0;
+  padding:.82rem;
+  overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--accent) 12%,var(--border));
+  border-radius:var(--radius-lg);
+  background:linear-gradient(110deg,color-mix(in srgb,var(--surface-solid) 97%,transparent),color-mix(in srgb,var(--accent) 4%,var(--surface-solid)));
+  box-shadow:0 10px 32px rgba(15,23,42,.06), inset 0 1px 0 rgba(255,255,255,.5);
+  isolation:isolate;
+}
+.skill-lane::before {
+  content:"";
+  position:absolute;
+  inset:0 auto 0 0;
+  width:3px;
+  background:linear-gradient(180deg,var(--accent),color-mix(in srgb,var(--accent) 30%,transparent));
+  box-shadow:0 0 20px color-mix(in srgb,var(--accent) 45%,transparent);
+}
+.skill-lane::after {
+  content:"";
+  position:absolute;
+  inset:-60% auto -60% 16%;
+  width:5rem;
+  transform:rotate(18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.16),transparent);
+  animation:lane-sheen 7s ease-in-out infinite;
+  pointer-events:none;
+  z-index:-1;
+}
+@keyframes lane-sheen { 0%,55%{translate:-250% 0;opacity:0} 65%{opacity:1} 100%{translate:1500% 0;opacity:0} }
+.skill-lane__label { min-width:0; padding:.45rem .75rem; }
+.skill-lane__label span { display:block; color:var(--accent); font-size:.68rem; font-weight:850; letter-spacing:.18em; }
+.skill-lane__label h3 { margin:.12rem 0 0; font-size:clamp(.94rem,1.4vw,1.08rem); }
+
+.marquee {
+  position:relative;
+  width:100%;
+  min-width:0;
+  max-width:100%;
+  overflow:hidden;
+  opacity:.01;
+  transition:opacity .25s ease;
+  mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent);
+}
+.marquee.is-ready { opacity:1; }
+.marquee__track { display:flex; width:max-content; gap:.8rem; will-change:transform; transform:translate3d(0,0,0); }
+.marquee__group { display:flex; flex:none; align-items:center; gap:.8rem; margin:0; padding:0; list-style:none; }
+.marquee--css-fallback .marquee__track { animation:cq-fallback-left var(--marquee-speed,36s) linear infinite; }
+.marquee--css-fallback[data-direction="right"] .marquee__track { animation-name:cq-fallback-right; }
+@keyframes cq-fallback-left { to { transform:translate3d(-50%,0,0); } }
+@keyframes cq-fallback-right { from { transform:translate3d(-50%,0,0); } to { transform:translate3d(0,0,0); } }
+
+.tech-pill {
+  position:relative;
+  display:flex;
+  flex:0 0 auto;
+  align-items:center;
+  gap:.68rem;
+  min-width:142px;
+  min-height:3.25rem;
+  padding:.55rem .95rem .55rem .58rem;
+  overflow:hidden;
+  border:1px solid color-mix(in srgb,var(--accent) 10%,var(--border));
+  border-radius:999px;
+  color:var(--text);
+  background:linear-gradient(145deg,color-mix(in srgb,var(--surface-solid) 98%,transparent),color-mix(in srgb,var(--accent) 5%,var(--surface-solid)));
+  box-shadow:0 5px 14px rgba(15,23,42,.06), inset 0 1px 0 rgba(255,255,255,.65);
+  transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease,background .25s ease;
+}
+.tech-pill::after { content:""; position:absolute; inset:0; opacity:0; background:linear-gradient(110deg,transparent,rgba(255,255,255,.24),transparent); transform:translateX(-100%); transition:transform .5s ease,opacity .3s ease; }
+.tech-pill:hover { z-index:2; transform:translateY(-4px) scale(1.025); border-color:color-mix(in srgb,var(--accent) 48%,var(--border)); box-shadow:0 12px 25px rgba(15,23,42,.12),0 0 0 3px color-mix(in srgb,var(--accent) 10%,transparent); }
+.tech-pill:hover::after { opacity:1; transform:translateX(100%); }
+.tech-pill__icon { display:grid; place-items:center; flex:0 0 auto; width:2.25rem; height:2.25rem; border-radius:.72rem; background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 12%,var(--surface-solid)),color-mix(in srgb,var(--accent) 4%,var(--surface-solid))); box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--accent) 9%,var(--border)); transition:transform .25s ease; }
+.tech-pill:hover .tech-pill__icon { transform:rotate(-5deg) scale(1.08); }
+.tech-pill__icon img { width:1.42rem; height:1.42rem; object-fit:contain; }
+.tech-pill__icon--text { color:var(--accent); font-size:.67rem; font-weight:850; }
+.tech-pill__name { position:relative; z-index:1; white-space:nowrap; font-size:.82rem; font-weight:720; }
+
+@media (max-width:760px) {
+  .skill-summary{align-items:flex-start;flex-direction:column;padding:1.05rem}
+  .stack-marquee--bleed{padding-inline:.5rem}
+  .skill-lane{grid-template-columns:1fr;gap:.3rem;padding:.58rem}
+  .skill-lane__label{display:flex;align-items:baseline;gap:.55rem;padding:.35rem .5rem .55rem;border-bottom:1px solid var(--border)}
+  .skill-lane__label h3{margin:0}
+  .tech-pill{min-width:132px;min-height:3rem;padding:.5rem .78rem .5rem .5rem}
+  .tech-pill__icon{width:2rem;height:2rem}
+  .tech-pill__icon img{width:1.28rem;height:1.28rem}
+}
+
+/* The ticker remains active on GitHub Pages and desktop even when the OS
+   requests reduced motion. Other site animations still honor that setting. */
+@media (prefers-reduced-motion:reduce) {
+  .skill-lane::after{animation:none}
+  .tech-pill,.tech-pill__icon{transition:none}
+}

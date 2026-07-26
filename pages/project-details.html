@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" data-base="..">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Details | Christian Paul Quema</title>
+    <link rel="icon" href="../assets/icons/favicon.ico?v=20260726-final" sizes="any" />
+    <link rel="icon" href="../assets/icons/favicon.svg?v=20260726-final" type="image/svg+xml" />
+    <link rel="icon" href="../assets/icons/favicon-32.png?v=20260726-final" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="../assets/icons/favicon-180.png?v=20260726-final" />
+    <link rel="manifest" href="../site.webmanifest?v=20260726-final" />
+    <meta name="description" content="Full case study for a project by Christian Paul Quema." />
+    <meta name="theme-color" content="#f6f7fb" />
+    <meta name="robots" content="noindex" />
+
+    <link rel="stylesheet" href="../assets/css/reset.css?v=20260726-final" />
+    <link rel="stylesheet" href="../assets/css/variables.css?v=20260726-final" />
+    <link rel="stylesheet" href="../assets/css/global.css?v=20260726-final" />
+    <link rel="stylesheet" href="../assets/css/components.css?v=20260726-final" />
+    <link rel="stylesheet" href="../assets/css/animations.css?v=20260726-final" />
+    <link rel="stylesheet" href="../assets/css/pages/projects.css?v=20260726-final" />
+    <link rel="stylesheet" href="../assets/css/responsive.css?v=20260726-final" />
+
+    <script src="../assets/js/theme.js?v=20260726-final"></script>
+  </head>
+
+  <body>
+    <div class="bg-field" aria-hidden="true"></div>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="container">
+        <nav class="site-nav" aria-label="Primary">
+          <a class="brand" href="../index.html">
+            <span class="brand__mark brand__mark--logo" aria-hidden="true"><img src="../assets/icons/cq-logo.png?v=20260726-final" alt="" width="42" height="42" /></span>
+            <span>Christian Quema</span>
+          </a>
+
+          <div class="nav-panel" id="primary-navigation" data-nav-panel>
+            <ul class="nav-list">
+              <li><a class="nav-link" href="../index.html">Home</a></li>
+              <li><a class="nav-link" href="../pages/about.html">About</a></li>
+              <li><a class="nav-link" href="../pages/projects.html" aria-current="page">Projects</a></li>
+              <li><a class="nav-link" href="../pages/skills.html">Skills</a></li>
+              <li><a class="nav-link" href="../pages/experience.html">Experience</a></li>
+              <li><a class="nav-link" href="../pages/contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="nav-actions">
+            <button
+              class="icon-button"
+              type="button"
+              data-theme-toggle
+              aria-pressed="false"
+              aria-label="Switch to dark mode"
+            ></button>
+            <button
+              class="icon-button nav-toggle"
+              type="button"
+              data-nav-toggle
+              aria-expanded="false"
+              aria-controls="primary-navigation"
+              aria-label="Open navigation"
+            ></button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- Shown until the project data resolves. -->
+      <div class="container detail-loading" data-detail-loading>
+        <p class="muted">Loading project…</p>
+      </div>
+
+      <!-- Shown when the ?project= id is missing or unknown. -->
+      <div class="container detail-error" data-detail-error hidden>
+        <h2>Project not found</h2>
+        <p data-detail-error-message></p>
+        <a class="btn btn--primary" href="projects.html">Back to all projects</a>
+      </div>
+
+      <div data-detail-content hidden>
+        <section class="detail-header">
+          <div class="container">
+            <ol class="breadcrumbs">
+              <li><a href="../index.html">Home</a></li>
+              <li><a href="projects.html">Projects</a></li>
+              <li aria-current="page" data-detail-crumb></li>
+            </ol>
+
+            <p class="eyebrow" data-detail-kicker></p>
+            <h1 data-detail-title></h1>
+            <div class="detail-header__meta" data-detail-meta></div>
+            <p class="lede" data-detail-summary></p>
+            <div class="btn-row" style="margin-top: 1.75rem" data-detail-actions></div>
+          </div>
+        </section>
+
+        <section class="section--tight">
+          <div class="container" data-detail-hero></div>
+        </section>
+
+        <section class="section" style="padding-top: 0">
+          <div class="container">
+            <div class="detail-layout">
+              <div class="detail-main" data-detail-main></div>
+              <aside class="detail-side" data-detail-side aria-label="Project facts"></aside>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div>
+            <a class="brand" href="../index.html">
+              <span class="brand__mark brand__mark--logo" aria-hidden="true"><img src="../assets/icons/cq-logo.png?v=20260726-final" alt="" width="42" height="42" /></span>
+              <span>Christian Quema</span>
+            </a>
+            <p class="muted" style="margin-top: 0.85rem; max-width: 28rem; font-size: 0.875rem">
+              IT Technical Support Specialist and freelance Full-Stack Developer based in Metro Manila,
+              Philippines. I support users, devices, and business systems — and build the workflows behind them.
+            </p>
+          </div>
+
+          <div>
+            <h2>Portfolio</h2>
+            <ul class="footer-links">
+              <li><a href="../pages/about.html">About</a></li>
+              <li><a href="../pages/projects.html">Projects</a></li>
+              <li><a href="../pages/skills.html">Skills</a></li>
+              <li><a href="../pages/experience.html">Experience</a></li>
+              <li><a href="../pages/contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h2>Elsewhere</h2>
+            <ul class="footer-links">
+              <li><a href="mailto:quemapaulchristian0@gmail.com">quemapaulchristian0@gmail.com</a></li>
+              <li>
+                <a href="https://github.com/ChristianPaulCQuema" target="_blank" rel="noopener noreferrer">
+                  GitHub<span class="visually-hidden"> (opens in a new tab)</span>
+                </a>
+              </li>
+              <li><span class="muted">Metro Manila, Philippines</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; <span data-year>2026</span> Christian Paul Quema. All rights reserved.</p>
+          <p>Built with semantic HTML, modular CSS, and vanilla JavaScript.</p>
+        </div>
+      </div>
+    </footer>
+
+    <button class="to-top" type="button" data-to-top aria-label="Back to top"></button>
+
+    <div class="modal" data-gallery-modal role="dialog" aria-modal="true" aria-labelledby="gallery-title" aria-hidden="true">
+      <div class="modal__dialog" tabindex="-1">
+        <header class="modal__header">
+          <div>
+            <p class="modal__kicker" data-gallery-kicker></p>
+            <h2 class="modal__title" id="gallery-title" data-gallery-title></h2>
+          </div>
+          <button class="modal__close" type="button" data-modal-close aria-label="Close preview"></button>
+        </header>
+
+        <div class="modal__body">
+          <div class="gallery">
+            <div class="gallery__stage" data-gallery-stage>
+              <img data-gallery-image alt="" width="1440" height="900" decoding="async" />
+              <button class="gallery__nav gallery__nav--prev" type="button" data-gallery-prev aria-label="Previous screenshot"></button>
+              <button class="gallery__nav gallery__nav--next" type="button" data-gallery-next aria-label="Next screenshot"></button>
+            </div>
+
+            <p class="gallery__meta">
+              <span class="gallery__caption" data-gallery-caption aria-live="polite"></span>
+              <span class="gallery__counter" data-gallery-counter></span>
+            </p>
+
+            <div class="gallery__thumbs" data-gallery-thumbs role="group" aria-label="Screenshot thumbnails"></div>
+          </div>
+        </div>
+
+        <footer class="modal__footer">
+          <p class="muted" style="margin-right: auto; font-size: 0.8rem">
+            Use the arrow keys to browse, or press <kbd>Esc</kbd> to close.
+          </p>
+          <button class="btn btn--ghost" type="button" data-modal-close>Close</button>
+        </footer>
+      </div>
+    </div>
+
+    <script src="../assets/js/components.js?v=20260726-final"></script>
+    <script src="../assets/js/navigation.js?v=20260726-final"></script>
+    <script src="../assets/js/animations.js?v=20260726-final"></script>
+    <script src="../assets/js/project-gallery.js?v=20260726-final"></script>
+    <script src="../assets/js/data/projects-data.js?v=20260726-final"></script>
+    <script src="../assets/js/projects.js?v=20260726-final"></script>
+    <script src="../assets/js/main.js?v=20260726-final"></script>
+  </body>
+</html>
